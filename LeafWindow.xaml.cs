@@ -19,13 +19,16 @@ namespace NewLeaf
     /// </summary>
     public partial class LeafWindow : Window
     {
-        private int Id;
-        private string Date;
-        private string Content;
-        private DatabaseHelper DatabaseHelper;
-        public LeafWindow(int id, string date, string content, DatabaseHelper databaseHelper)
+        private readonly DatabaseEntry DatabaseEntry;
+        private readonly DatabaseHelper DatabaseHelper;
+
+        public LeafWindow(DatabaseEntry databaseEntry, DatabaseHelper databaseHelper)
         {
             InitializeComponent();
+            DatabaseEntry = databaseEntry;
+            DatabaseHelper = databaseHelper;
+            DataContext = databaseEntry;
+
             TittleBar.MouseMove += (s, e) =>
             {
                 if (e.LeftButton == MouseButtonState.Pressed)
@@ -36,10 +39,10 @@ namespace NewLeaf
 
             SaveLeafButton.Click += (s, e) =>
             {
-                TextRange textRange = new TextRange(
-                    TextEditor.Document.ContentStart,
-                    TextEditor.Document.ContentEnd);
-                DatabaseHelper.UpdateEntry(Id, Date, textRange.Text);
+                //TextRange textRange = new TextRange(
+                //    TextEditor.Document.ContentStart,
+                //    TextEditor.Document.ContentEnd);
+                //DatabaseEntry.Content = textRange.Text;
             };
 
             MinimizeButton.Click += (s, e) =>
@@ -56,12 +59,15 @@ namespace NewLeaf
             {
                 Close();
             };
+        }
 
-            Id = id;
-            Date = date;
-            Content = content;
-            TextEditor.AppendText(Content);
-            DatabaseHelper = databaseHelper;
+        private void TextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.S && (Keyboard.Modifiers & ModifierKeys.Control) == ModifierKeys.Control)
+            {
+                var textBox = (TextBox)sender;
+                DatabaseHelper.UpdateEntry(DatabaseEntry.Id, DatabaseEntry.Date, textBox.Text);
+            }
         }
     }
 }

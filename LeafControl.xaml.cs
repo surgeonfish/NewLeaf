@@ -20,33 +20,28 @@ namespace NewLeaf
     /// </summary>
     public partial class LeafControl : UserControl
     {
-        private int Id;
-        private string Date;
-        private string Content;
-        private DatabaseHelper DatabaseHelper;
-        private LeafWindow leafWindow = null;
-        public LeafControl(int id, string date, string content, DatabaseHelper databaseHelper)
+        private readonly DatabaseEntry DatabaseEntry;
+        private readonly DatabaseHelper DatabaseHelper;
+        private LeafWindow LeafWindow = null;
+
+        public LeafControl(DatabaseEntry databaseEntry, DatabaseHelper databaseHelper)
         {
             InitializeComponent();
-            Id = id;
-            Date = date;
-            Content = content;
-
-            DateText.Text = date;
-            ContentText.Text = content;
+            DatabaseEntry = databaseEntry;
+            DataContext = databaseEntry;
             DatabaseHelper = databaseHelper;
         }
 
         private void UserControl_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            if (leafWindow == null)
+            if (LeafWindow == null)
             {
-                leafWindow = new LeafWindow(Id, Date, Content, DatabaseHelper);
-                leafWindow.Show();
+                LeafWindow = new LeafWindow(DatabaseEntry, DatabaseHelper);
+                LeafWindow.Show();
             }
             else
             {
-                leafWindow.Activate();
+                LeafWindow.Activate();
                 //leafWindow.Focus();
             }
         }

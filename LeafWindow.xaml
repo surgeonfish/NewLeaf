@@ -14,6 +14,8 @@
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
+
+        <!-- Tittle Bar -->
         <Border x:Name="TittleBar" Grid.Row="0" Background="Transparent">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                 <Button x:Name="SaveLeafButton" Content="+"></Button>
@@ -22,6 +24,8 @@
                 <Button x:Name="CloseButton" Content="x"></Button>
             </StackPanel>
         </Border>
-        <RichTextBox x:Name="TextEditor" Grid.Row="1"></RichTextBox>
+
+        <!-- Content -->
+        <TextBox Grid.Row="1" Text="{Binding Content}" KeyDown="TextBox_KeyDown"/>
     </Grid>
 </Window>

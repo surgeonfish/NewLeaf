@@ -14,7 +14,11 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" MaxWidth="800"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <TextBlock x:Name="DateText" Grid.Row="0" HorizontalAlignment="Right"></TextBlock>
-        <TextBlock x:Name="ContentText" Grid.Row="1" HorizontalAlignment="Left"></TextBlock>
+
+        <!-- Date Tittle -->
+        <TextBlock Grid.Row="0" HorizontalAlignment="Right" Text="{Binding Date}"/>
+
+        <!-- Content -->
+        <TextBlock Grid.Row="1" HorizontalAlignment="Left" Text="{Binding Content}"/>
     </Grid>
 </UserControl>

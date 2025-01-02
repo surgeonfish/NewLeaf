@@ -20,7 +20,7 @@ namespace NewLeaf
     /// </summary>
     public partial class MainWindow : Window
     {
-        private DatabaseHelper databaseHelper;
+        private readonly DatabaseHelper databaseHelper;
 
         public MainWindow()
         {
@@ -74,7 +74,7 @@ namespace NewLeaf
             Leaves.Children.Clear();
             foreach (DatabaseEntry entry in entries)
             {
-                LeafControl leaf = new LeafControl(entry.Id, entry.Date, entry.Content, databaseHelper);
+                LeafControl leaf = new LeafControl(entry, databaseHelper);
                 Leaves.Children.Add(leaf);
             }
         }
