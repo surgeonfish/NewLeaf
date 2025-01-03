@@ -17,10 +17,10 @@
         </Grid.RowDefinitions>
         <Border x:Name="TittleBar" Grid.Row="0" Background="Transparent">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                <Button x:Name="NewLeafButton" Content="+"></Button>
-                <Button x:Name="MinimizeButton" Content="-"></Button>
-                <Button x:Name="MaximizeButton" Content="▢"></Button>
-                <Button x:Name="CloseButton" Content="x"></Button>
+                <Button x:Name="NewLeafButton" FontFamily="Segoe Fluent Icons" Content="&#xed0e;"></Button>
+                <Button x:Name="MinimizeButton" FontFamily="Segoe Fluent Icons" Content="&#xe921;"></Button>
+                <Button x:Name="MaximizeButton" FontFamily="Segoe Fluent Icons" Content="&#xe922;"></Button>
+                <Button x:Name="CloseButton" FontFamily="Segoe Fluent Icons" Content="&#xe8bb;"></Button>
             </StackPanel>
         </Border>
         <StackPanel x:Name="Leaves" Grid.Row="1">
