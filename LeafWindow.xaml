@@ -7,8 +7,16 @@
         mc:Ignorable="d"
         WindowStyle="None"
         Title="Leaf"
-        Height="450"
-        Width="800">
+        Height="320"
+        Width="320">
+    <Window.Resources>
+        <Style x:Key="CaptionButtonStyle" TargetType="{x:Type Button}">
+            <Setter Property="FontFamily" Value="Segoe Fluent Icons"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+        </Style>
+    </Window.Resources>
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>
@@ -16,16 +24,28 @@
         </Grid.RowDefinitions>
 
         <!-- Tittle Bar -->
-        <Border x:Name="TittleBar" Grid.Row="0" Background="Transparent">
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                <Button x:Name="SaveLeafButton" FontFamily="Segoe Fluent Icons" Content="&#xE74E;"></Button>
-                <Button x:Name="MinimizeButton" FontFamily="Segoe Fluent Icons" Content="&#xe921;"></Button>
-                <Button x:Name="MaximizeButton" FontFamily="Segoe Fluent Icons" Content="&#xe922;"></Button>
-                <Button x:Name="CloseButton" FontFamily="Segoe Fluent Icons" Content="&#xe8bb;"></Button>
-            </StackPanel>
+        <Border x:Name="TittleBar" Grid.Row="0" Background="White">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- SaveLeaf Button -->
+                <StackPanel Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Left" Margin="4,0,0,0">
+                    <Button x:Name="SaveLeafButton" Style="{StaticResource CaptionButtonStyle}" Content="&#xE74E;" FontSize="16"></Button>
+                </StackPanel>
+
+                <!-- Minimize/Maximize/Close Buttons -->
+                <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,4,0">
+                    <Button x:Name="MinimizeButton" Style="{StaticResource CaptionButtonStyle}" Content="&#xe921;"></Button>
+                    <Button x:Name="MaximizeButton" Style="{StaticResource CaptionButtonStyle}" Content="&#xe922;"></Button>
+                    <Button x:Name="CloseButton" Style="{StaticResource CaptionButtonStyle}" Content="&#xe8bb;"></Button>
+                </StackPanel>
+            </Grid>
         </Border>
 
         <!-- Content -->
-        <TextBox Grid.Row="1" Text="{Binding LeafContent}" KeyDown="TextBox_KeyDown"/>
+        <TextBox Grid.Row="1" Text="{Binding LeafContent}" BorderBrush="Transparent" BorderThickness="0" Margin="4,4" KeyDown="TextBox_KeyDown"/>
     </Grid>
 </Window>
