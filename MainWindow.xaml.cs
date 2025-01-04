@@ -48,6 +48,12 @@ namespace NewLeaf
                 string content = "";
                 // Default color.
                 Color color = Colors.Yellow;
+                if (Leaves.Children.Count > 0)
+                {
+                    // Default to the color of the first leaf.
+                    LeafControl leafControl = Leaves.Children[Leaves.Children.Count - 1] as LeafControl;
+                    color = leafControl.DatabaseEntry.LeafColor;
+                }
                 databaseHelper.InsertEntry(date, content, color);
                 // Reload leaves if the database is updated.
                 LoadLeaves();
