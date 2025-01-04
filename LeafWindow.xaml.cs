@@ -40,10 +40,8 @@ namespace NewLeaf
 
             SaveLeafButton.Click += (s, e) =>
             {
-                //TextRange textRange = new TextRange(
-                //    TextEditor.Document.ContentStart,
-                //    TextEditor.Document.ContentEnd);
-                //DatabaseEntry.Content = textRange.Text;
+                DatabaseEntry.LeafContent = TextEditor.Text;
+                DatabaseHelper.UpdateEntry(DatabaseEntry);
             };
 
             PinButton.Click += (s, e) =>

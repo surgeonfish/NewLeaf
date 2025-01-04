@@ -65,6 +65,12 @@
         </Border>
 
         <!-- Content -->
-        <TextBox Grid.Row="1" Text="{Binding LeafContent}" BorderBrush="Transparent" BorderThickness="0" Margin="4,4" KeyDown="TextBox_KeyDown"/>
+        <TextBox x:Name="TextEditor"
+                 Grid.Row="1"
+                 Text="{Binding LeafContent}"
+                 BorderBrush="Transparent"
+                 BorderThickness="0"
+                 Margin="4,4"
+                 KeyDown="TextBox_KeyDown"/>
     </Grid>
 </Window>
