@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -43,6 +44,18 @@ namespace NewLeaf
                 //    TextEditor.Document.ContentStart,
                 //    TextEditor.Document.ContentEnd);
                 //DatabaseEntry.Content = textRange.Text;
+            };
+
+            PinButton.Click += (s, e) =>
+            {
+                var toggleButton = (ToggleButton)s;
+                if (toggleButton.IsChecked == true)
+                {
+                    Topmost = true;
+                } else
+                {
+                    Topmost= false;
+                }
             };
 
             MinimizeButton.Click += (s, e) =>

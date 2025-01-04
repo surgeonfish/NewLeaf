@@ -36,8 +36,27 @@
                     <Button x:Name="SaveLeafButton" Style="{StaticResource CaptionButtonStyle}" Content="&#xE74E;" FontSize="16"></Button>
                 </StackPanel>
 
-                <!-- Minimize/Maximize/Close Buttons -->
+                <!-- Pin/Minimize/Maximize/Close Buttons -->
                 <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,4,0">
+                    <ToggleButton x:Name="PinButton">
+                        <ToggleButton.Style>
+                            <Style>
+                                <Setter Property="ToggleButton.FontFamily" Value="Segoe Fluent Icons"/>
+                                <Setter Property="ToggleButton.FontSize" Value="16"/>
+                                <Setter Property="ToggleButton.Content" Value="&#xe718;"/>
+                                <Setter Property="ToggleButton.Background" Value="Transparent"/>
+                                <Setter Property="ToggleButton.BorderBrush" Value="Transparent"/>
+                                <Style.Triggers>
+                                    <Trigger Property="ToggleButton.IsChecked" Value="False">
+                                        <Setter Property="ToggleButton.Content" Value="&#xe718;"/>
+                                    </Trigger>
+                                    <Trigger Property="ToggleButton.IsChecked" Value="True">
+                                        <Setter Property="ToggleButton.Content" Value="&#xe77a;"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </ToggleButton.Style>
+                    </ToggleButton>
                     <Button x:Name="MinimizeButton" Style="{StaticResource CaptionButtonStyle}" Content="&#xe921;"></Button>
                     <Button x:Name="MaximizeButton" Style="{StaticResource CaptionButtonStyle}" Content="&#xe922;"></Button>
                     <Button x:Name="CloseButton" Style="{StaticResource CaptionButtonStyle}" Content="&#xe8bb;"></Button>
