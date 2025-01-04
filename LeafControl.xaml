@@ -6,19 +6,21 @@
              xmlns:local="clr-namespace:NewLeaf"
              mc:Ignorable="d"
              MouseDoubleClick="UserControl_MouseDoubleClick">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"></RowDefinition>
-            <RowDefinition Height="*"></RowDefinition>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" MaxWidth="800"></ColumnDefinition>
-        </Grid.ColumnDefinitions>
+    <Border x:Name="LeafBorder" CornerRadius="8" Margin="4,2">
+        <Grid Margin="0,2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" MaxWidth="800"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
 
-        <!-- Date Tittle -->
-        <TextBlock Grid.Row="0" HorizontalAlignment="Right" Text="{Binding DateCreated}"/>
+            <!-- Date Tittle -->
+            <TextBlock Grid.Row="0" HorizontalAlignment="Right" Text="{Binding DateCreated}" Margin="0,0,4,0"/>
 
-        <!-- Content -->
-        <TextBlock Grid.Row="1" HorizontalAlignment="Left" Text="{Binding LeafContent}"/>
-    </Grid>
+            <!-- Content -->
+            <TextBlock Grid.Row="1" HorizontalAlignment="Left" Text="{Binding LeafContent}" Margin="4,0,0,0"/>
+        </Grid>
+    </Border>
 </UserControl>
