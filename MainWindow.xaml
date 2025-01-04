@@ -10,20 +10,43 @@
         Height="500"
         Width="335"
         MinWidth="335">
+    <Window.Resources>
+        <Style x:Key="CaptionButtonStyle" TargetType="{x:Type Button}">
+            <Setter Property="FontFamily" Value="Segoe Fluent Icons"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+        </Style>
+    </Window.Resources>
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
-        <Border x:Name="TittleBar" Grid.Row="0" Background="Transparent">
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                <Button x:Name="NewLeafButton" FontFamily="Segoe Fluent Icons" Content="&#xed0e;"></Button>
-                <Button x:Name="MinimizeButton" FontFamily="Segoe Fluent Icons" Content="&#xe921;"></Button>
-                <Button x:Name="MaximizeButton" FontFamily="Segoe Fluent Icons" Content="&#xe922;"></Button>
-                <Button x:Name="CloseButton" FontFamily="Segoe Fluent Icons" Content="&#xe8bb;"></Button>
-            </StackPanel>
+
+        <Border x:Name="TittleBar" Grid.Row="0" Background="White">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- New button -->
+                <StackPanel Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Left" Margin="4,0,0,0">
+                    <Button x:Name="NewLeafButton" Style="{StaticResource CaptionButtonStyle}" Content="&#xed0e;" FontSize="16"></Button>
+                </StackPanel>
+
+                <!-- Minimize/Maximize/Close Buttons -->
+                <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,4,0">
+                    <Button x:Name="MinimizeButton" Style="{StaticResource CaptionButtonStyle}" Content="&#xe921;"></Button>
+                    <Button x:Name="MaximizeButton" Style="{StaticResource CaptionButtonStyle}" Content="&#xe922;"></Button>
+                    <Button x:Name="CloseButton" Style="{StaticResource CaptionButtonStyle}" Content="&#xe8bb;"></Button>
+                </StackPanel>
+            </Grid>
         </Border>
-        <StackPanel x:Name="Leaves" Grid.Row="1">
+
+        <!-- Content -->
+        <StackPanel x:Name="Leaves" Grid.Row="1" Background="White" Margin="0,4,0,0">
             <!-- Populated with LeafControls here. -->
         </StackPanel>
     </Grid>
