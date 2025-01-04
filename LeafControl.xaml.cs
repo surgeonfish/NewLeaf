@@ -20,7 +20,7 @@ namespace NewLeaf
     /// </summary>
     public partial class LeafControl : UserControl
     {
-        private readonly DatabaseEntry DatabaseEntry;
+        public readonly DatabaseEntry DatabaseEntry;
         private readonly DatabaseHelper DatabaseHelper;
         private LeafWindow LeafWindow = null;
 
