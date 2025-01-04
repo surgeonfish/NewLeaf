@@ -34,7 +34,7 @@ namespace NewLeaf
 
         private void UserControl_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            if (LeafWindow == null)
+            if (LeafWindow == null || !LeafWindow.IsLoaded)
             {
                 LeafWindow = new LeafWindow(DatabaseEntry, DatabaseHelper);
                 LeafWindow.Show();
