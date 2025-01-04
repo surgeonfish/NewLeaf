@@ -4,52 +4,81 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media;
 
 namespace NewLeaf
 {
     public class DatabaseEntry : INotifyPropertyChanged
     {
-        public int Id
+        public int LeafId
         {
-            get { return IdProperty;  }
+            get { return LeafIdProperty;  }
             set
             {
-                if (IdProperty != value)
+                if (LeafIdProperty != value)
                 {
-                    IdProperty = value;
-                    OnPropertyChanged(nameof(Id));
+                    LeafIdProperty = value;
+                    OnPropertyChanged(nameof(LeafId));
                 }
             }
         }
-        private int IdProperty;
+        private int LeafIdProperty;
 
-        public string Date
+        public string LeafContent
         {
-            get { return DateProperty; }
+            get { return LeafContentProperty; }
             set
             {
-                if (DateProperty != value)
+                if (LeafContentProperty != value)
                 {
-                    DateProperty = value;
-                    OnPropertyChanged(nameof(Date));
+                    LeafContentProperty = value;
+                    OnPropertyChanged(nameof(LeafContent));
                 }
             }
         }
-        private string DateProperty;
+        private string LeafContentProperty;
 
-        public string Content
+        public Color LeafColor
         {
-            get { return ContentProperty; }
+            get { return LeafColorProperty; }
             set
             {
-                if (ContentProperty != value)
+                if (LeafColorProperty != value)
                 {
-                    ContentProperty = value;
-                    OnPropertyChanged(nameof(Content));
+                    LeafColorProperty = value;
+                    OnPropertyChanged(nameof(LeafColor));
                 }
             }
         }
-        private string ContentProperty;
+        private Color LeafColorProperty;
+
+        public string DateCreated
+        {
+            get { return DateCreatedProperty; }
+            set
+            {
+                if (DateCreatedProperty != value)
+                {
+                    DateCreatedProperty = value;
+                    OnPropertyChanged(nameof(DateCreated));
+                }
+            }
+        }
+        private string DateCreatedProperty;
+
+        public string DateLastUpdated
+        {
+            get { return DateLastUpdatedProperty; }
+            set
+            {
+                if (DateLastUpdatedProperty != value)
+                {
+                    DateLastUpdatedProperty = value;
+                    OnPropertyChanged(nameof(DateLastUpdated));
+                }
+            }
+        }
+        private string DateLastUpdatedProperty;
 
         public event PropertyChangedEventHandler PropertyChanged;
 

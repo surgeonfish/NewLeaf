@@ -16,9 +16,9 @@
         </Grid.ColumnDefinitions>
 
         <!-- Date Tittle -->
-        <TextBlock Grid.Row="0" HorizontalAlignment="Right" Text="{Binding Date}"/>
+        <TextBlock Grid.Row="0" HorizontalAlignment="Right" Text="{Binding DateCreated}"/>
 
         <!-- Content -->
-        <TextBlock Grid.Row="1" HorizontalAlignment="Left" Text="{Binding Content}"/>
+        <TextBlock Grid.Row="1" HorizontalAlignment="Left" Text="{Binding LeafContent}"/>
     </Grid>
 </UserControl>

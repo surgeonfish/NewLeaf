@@ -26,6 +26,6 @@
         </Border>
 
         <!-- Content -->
-        <TextBox Grid.Row="1" Text="{Binding Content}" KeyDown="TextBox_KeyDown"/>
+        <TextBox Grid.Row="1" Text="{Binding LeafContent}" KeyDown="TextBox_KeyDown"/>
     </Grid>
 </Window>

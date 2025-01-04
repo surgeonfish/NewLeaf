@@ -46,7 +46,9 @@ namespace NewLeaf
             {
                 string date = DateTime.Now.ToString("yyyy-MM-dd");
                 string content = "";
-                databaseHelper.InsertEntry(date, content);
+                // Default color.
+                Color color = Colors.Yellow;
+                databaseHelper.InsertEntry(date, content, color);
                 // Reload leaves if the database is updated.
                 LoadLeaves();
             };

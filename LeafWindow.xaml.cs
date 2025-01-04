@@ -66,7 +66,7 @@ namespace NewLeaf
             if (e.Key == Key.S && (Keyboard.Modifiers & ModifierKeys.Control) == ModifierKeys.Control)
             {
                 var textBox = (TextBox)sender;
-                DatabaseHelper.UpdateEntry(DatabaseEntry.Id, DatabaseEntry.Date, textBox.Text);
+                DatabaseHelper.UpdateEntry(DatabaseEntry);
             }
         }
     }
