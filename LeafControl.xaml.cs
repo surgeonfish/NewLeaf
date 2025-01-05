@@ -30,7 +30,6 @@ namespace NewLeaf
             DatabaseEntry = databaseEntry;
             DataContext = databaseEntry;
             DatabaseHelper = databaseHelper;
-            LeafBorder.Background = new SolidColorBrush(databaseEntry.LeafColor);
         }
 
         private void UserControl_MouseDoubleClick(object sender, MouseButtonEventArgs e)
