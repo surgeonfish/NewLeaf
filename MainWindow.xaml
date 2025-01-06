@@ -15,8 +15,13 @@
             <Setter Property="FontFamily" Value="Segoe Fluent Icons"/>
             <Setter Property="Background" Value="Transparent"/>
             <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="WindowChrome.IsHitTestVisibleInChrome" Value="True"/>
         </Style>
     </Window.Resources>
+
+    <WindowChrome.WindowChrome>
+        <WindowChrome/>
+    </WindowChrome.WindowChrome>
 
     <Grid>
         <Grid.RowDefinitions>
@@ -32,12 +37,12 @@
                 </Grid.ColumnDefinitions>
 
                 <!-- New button -->
-                <StackPanel Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Left" Margin="4,0,0,0">
+                <StackPanel Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Left" Margin="4,4,0,0">
                     <Button x:Name="NewLeafButton" Style="{StaticResource CaptionButtonStyle}" Content="&#xed0e;" FontSize="16"></Button>
                 </StackPanel>
 
                 <!-- Minimize/Maximize/Close Buttons -->
-                <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,4,0">
+                <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,4,4,0">
                     <Button x:Name="MinimizeButton" Style="{StaticResource CaptionButtonStyle}" Content="&#xe921;"></Button>
                     <Button x:Name="MaximizeButton" Style="{StaticResource CaptionButtonStyle}" Content="&#xe922;"></Button>
                     <Button x:Name="CloseButton" Style="{StaticResource CaptionButtonStyle}" Content="&#xe8bb;"></Button>
