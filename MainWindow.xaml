@@ -10,15 +10,6 @@
         Height="500"
         Width="335"
         MinWidth="335">
-    <Window.Resources>
-        <Style x:Key="CaptionButtonStyle" TargetType="{x:Type Button}">
-            <Setter Property="FontFamily" Value="Segoe Fluent Icons"/>
-            <Setter Property="Background" Value="Transparent"/>
-            <Setter Property="BorderBrush" Value="Transparent"/>
-            <Setter Property="WindowChrome.IsHitTestVisibleInChrome" Value="True"/>
-        </Style>
-    </Window.Resources>
-
     <WindowChrome.WindowChrome>
         <WindowChrome/>
     </WindowChrome.WindowChrome>
