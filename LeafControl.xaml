@@ -20,7 +20,7 @@
                 <ColumnDefinition Width="*" MaxWidth="800"></ColumnDefinition>
             </Grid.ColumnDefinitions>
 
-            <!-- Date Tittle -->
+            <!-- Date Title -->
             <TextBlock Grid.Row="0" HorizontalAlignment="Right" Text="{Binding DateCreated}" Margin="0,0,4,0"/>
 
             <!-- Content -->

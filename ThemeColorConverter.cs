@@ -19,14 +19,14 @@ namespace NewLeaf
                 if (parameter is string component)
                 {
                     string componentColor = component + color;
-                    // For a tittle, it could be the one of the following keys:
-                    //     - "TittleYellow"
-                    //     - "TittleGreen"
-                    //     - "TittlePink"
-                    //     - "TittlePurple"
-                    //     - "TittleBlue"
-                    //     - "TittleGray"
-                    //     - "TittleCarbon"
+                    // For a title, it could be the one of the following keys:
+                    //     - "TitleYellow"
+                    //     - "TitleGreen"
+                    //     - "TitlePink"
+                    //     - "TitlePurple"
+                    //     - "TitleBlue"
+                    //     - "TitleGray"
+                    //     - "TitleCarbon"
                     //
                     // For a content, it could be the one of the following keys:
                     //     - "ContentYellow"

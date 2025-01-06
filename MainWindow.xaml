@@ -29,7 +29,7 @@
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <Border x:Name="TittleBar" Grid.Row="0" Background="White">
+        <Border x:Name="TitleBar" Grid.Row="0" Background="White">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>

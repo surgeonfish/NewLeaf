@@ -28,13 +28,13 @@ namespace NewLeaf
 
             databaseHelper = new DatabaseHelper("test.db");
 
-            SetTittleBar();
+            SetTitleBar();
             LoadLeaves();
         }
 
-        private void SetTittleBar()
+        private void SetTitleBar()
         {
-            TittleBar.MouseMove += (s, e) =>
+            TitleBar.MouseMove += (s, e) =>
             {
                 if (e.LeftButton == MouseButtonState.Pressed)
                 {

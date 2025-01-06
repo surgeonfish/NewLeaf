@@ -30,7 +30,7 @@ namespace NewLeaf
             DatabaseHelper = databaseHelper;
             DataContext = databaseEntry;
 
-            TittleBar.MouseMove += (s, e) =>
+            TitleBar.MouseMove += (s, e) =>
             {
                 if (e.LeftButton == MouseButtonState.Pressed)
                 {
