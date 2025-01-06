@@ -4,5 +4,12 @@
              xmlns:local="clr-namespace:NewLeaf"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Themes/Default.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+
+            <local:ThemeColorConverter x:Key="ThemeColorConverter"/>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
