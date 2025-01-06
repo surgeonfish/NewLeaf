@@ -37,14 +37,14 @@ namespace NewLeaf
                     //     - "ContentGray"
                     //     - "ContentCarbon"
                     //
-                    // For a content, it could be the one of the following keys:
-                    //     - "ContentYellow"
-                    //     - "ContentGreen"
-                    //     - "ContentPink"
-                    //     - "ContentPurple"
-                    //     - "ContentBlue"
-                    //     - "ContentGray"
-                    //     - "ContentCarbon"
+                    // For a picker, it could be the one of the following keys:
+                    //     - "PickerYellow"
+                    //     - "PickerGreen"
+                    //     - "PickerPink"
+                    //     - "PickerPurple"
+                    //     - "PickerBlue"
+                    //     - "PickerGray"
+                    //     - "PickerCarbon"
                     if (Application.Current.Resources.Contains(componentColor))
                     {
                         return (Color)Application.Current.Resources[componentColor];
