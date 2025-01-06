@@ -36,7 +36,7 @@ namespace NewLeaf
             }
         }
 
-        public void InsertEntry(string dateCreated, string leafContent, Color leafColor)
+        public void InsertEntry(string dateCreated, string leafContent, string leafColor)
         {
             using (var connection = new SQLiteConnection(connectionString))
             {
@@ -44,7 +44,7 @@ namespace NewLeaf
                 string sql = "INSERT INTO Leaves (Content, Color, DateCreated, DateLastUpdated) VALUES (@Content, @Color, @DateCreated, @DateLastUpdated)";
                 var command = new SQLiteCommand(sql, connection);
                 command.Parameters.AddWithValue("@Content", leafContent);
-                command.Parameters.AddWithValue("@Color", leafColor.ToString());
+                command.Parameters.AddWithValue("@Color", leafColor);
                 command.Parameters.AddWithValue("@DateCreated", dateCreated);
                 // The last upated date should be the same as the created data upon creation.
                 command.Parameters.AddWithValue("@DateLastUpdated", dateCreated);
@@ -73,7 +73,7 @@ namespace NewLeaf
                 var command = new SQLiteCommand(sql, connection);
                 command.Parameters.AddWithValue("@Id", databaseEntry.LeafId);
                 command.Parameters.AddWithValue("@Content", databaseEntry.LeafContent);
-                command.Parameters.AddWithValue("@Color", databaseEntry.LeafColor.ToString());
+                command.Parameters.AddWithValue("@Color", databaseEntry.LeafColor);
                 command.Parameters.AddWithValue("@DateLastUpdated", databaseEntry.DateLastUpdated);
                 command.ExecuteNonQuery();
             }
@@ -95,7 +95,7 @@ namespace NewLeaf
                         {
                             LeafId = reader.GetInt32(0),
                             LeafContent = reader.GetString(1),
-                            LeafColor = (Color)ColorConverter.ConvertFromString(reader.GetString(2)),
+                            LeafColor = reader.GetString(2),
                             DateCreated = reader.GetString(3),
                             DateLastUpdated = reader.GetString(4),
                         });

@@ -46,8 +46,7 @@ namespace NewLeaf
             {
                 string date = DateTime.Now.ToString("yyyy-MM-dd");
                 string content = "";
-                // Default color.
-                Color color = Colors.Yellow;
+                string color = "Yellow";
                 if (Leaves.Children.Count > 0)
                 {
                     // Default to the color of the first leaf.

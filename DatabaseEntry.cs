@@ -38,7 +38,7 @@ namespace NewLeaf
         }
         private string LeafContentProperty;
 
-        public Color LeafColor
+        public string LeafColor
         {
             get { return LeafColorProperty; }
             set
@@ -50,7 +50,7 @@ namespace NewLeaf
                 }
             }
         }
-        private Color LeafColorProperty;
+        private string LeafColorProperty;
 
         public string DateCreated
         {
