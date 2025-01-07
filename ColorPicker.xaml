@@ -1,0 +1,84 @@
+﻿<UserControl x:Class="NewLeaf.ColorPicker"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:NewLeaf"
+             mc:Ignorable="d"
+             MaxWidth="320"
+             MinWidth="192"
+             d:DesignHeight="24"
+             d:DesignWidth="320">
+    <UserControl.Resources>
+        <Style x:Key="ColorPikerButtonSytle" TargetType="{x:Type ToggleButton}">
+            <Setter Property="FontFamily" Value="Segoe Fluent Icons"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Style.Triggers>
+                <Trigger Property="IsChecked" Value="True">
+                    <Setter Property="Content" Value="&#xe73e;"/>
+                </Trigger>
+                <Trigger Property="IsChecked" Value="False">
+                    <Setter Property="Content" Value=""/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <SolidColorBrush x:Key="PickerYellowBrush" Color="{StaticResource PickerYellow}"/>
+        <SolidColorBrush x:Key="PickerGreenBrush" Color="{StaticResource PickerGreen}"/>
+        <SolidColorBrush x:Key="PickerPinkBrush" Color="{StaticResource PickerPink}"/>
+        <SolidColorBrush x:Key="PickerPurpleBrush" Color="{StaticResource PickerPurple}"/>
+        <SolidColorBrush x:Key="PickerBlueBrush" Color="{StaticResource PickerBlue}"/>
+        <SolidColorBrush x:Key="PickerGrayBrush" Color="{StaticResource PickerGray}"/>
+        <SolidColorBrush x:Key="PickerCarbonBrush" Color="{StaticResource PickerCarbon}"/>
+    </UserControl.Resources>
+
+    <Grid x:Name="ColorPalette">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <ToggleButton Grid.Column="0"
+                      Name="Yellow"
+                      Style="{StaticResource ColorPikerButtonSytle}"
+                      Click="ToggleButton_Click"
+                      Background="{StaticResource PickerYellowBrush}"/>
+        <ToggleButton Grid.Column="1"
+                      Name="Green"
+                      Click="ToggleButton_Click"
+                      Style="{StaticResource ColorPikerButtonSytle}"
+                      Background="{StaticResource PickerGreenBrush}"/>
+        <ToggleButton Grid.Column="2"
+                      Name="Pink"
+                      Click="ToggleButton_Click"
+                      Style="{StaticResource ColorPikerButtonSytle}"
+                      Background="{StaticResource PickerPinkBrush}"/>
+        <ToggleButton Grid.Column="3"
+                      Name="Purple"
+                      Click="ToggleButton_Click"
+                      Style="{StaticResource ColorPikerButtonSytle}"
+                      Background="{StaticResource PickerPurpleBrush}"/>
+        <ToggleButton Grid.Column="4"
+                      Name="Blue"
+                      Click="ToggleButton_Click"
+                      Style="{StaticResource ColorPikerButtonSytle}"
+                      Background="{StaticResource PickerBlueBrush}"/>
+        <ToggleButton Grid.Column="5"
+                      Name="Gray"
+                      Click="ToggleButton_Click"
+                      Style="{StaticResource ColorPikerButtonSytle}"
+                      Background="{StaticResource PickerGrayBrush}"/>
+        <ToggleButton Grid.Column="6"
+                      Name="Carbon"
+                      Click="ToggleButton_Click"
+                      Style="{StaticResource ColorPikerButtonSytle}"
+                      Background="{StaticResource PickerCarbonBrush}"/>
+    </Grid>
+</UserControl>

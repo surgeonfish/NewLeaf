@@ -37,11 +37,22 @@
         <WindowChrome/>
     </WindowChrome.WindowChrome>
 
-    <Grid Background="{StaticResource ContentColorBrush}">
+    <Grid x:Name="MainBoard"
+          Background="{StaticResource ContentColorBrush}">
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="24"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
+
+        <!-- Color picker -->
+        <local:ColorPicker x:Name="ColorPicker"
+                           Height="24"
+                           Width="{Binding Path=ActualWidth, RelativeSource={RelativeSource AncestorType=Window}}"
+                           Panel.ZIndex="1"
+                           HorizontalAlignment="Right"
+                           Visibility="Collapsed"
+                           MouseLeave="ColorPicker_MouseLeave"
+                           WindowChrome.IsHitTestVisibleInChrome="True"/>
 
         <!-- Title Bar -->
         <Border x:Name="TitleBar" Grid.Row="0" Background="{StaticResource TitleColorBrush}">
@@ -55,6 +66,10 @@
                 <StackPanel Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Left" Margin="4,4,0,0">
                     <ToggleButton x:Name="PinButton" Style="{StaticResource PinButtonStyle}"/>
                     <Button x:Name="SaveLeafButton" Style="{StaticResource CaptionButtonStyle}" Content="&#xe74e;" FontSize="16"/>
+                    <Button x:Name="ColorPickerButton"
+                            Style="{StaticResource CaptionButtonStyle}"
+                            Content="&#xe790;"
+                            FontSize="16"/>
                 </StackPanel>
 
                 <!-- Close Button -->

@@ -44,6 +44,16 @@ namespace NewLeaf
                 DatabaseHelper.UpdateEntry(DatabaseEntry);
             };
 
+            ColorPickerButton.Click += (s, e) =>
+            {
+                if (ColorPicker.Visibility == Visibility.Collapsed)
+                {
+                    ColorPicker.Visibility = Visibility.Visible;
+                }
+            };
+
+            ColorPicker.SetViewModel(DatabaseEntry, DatabaseHelper);
+
             PinButton.Click += (s, e) =>
             {
                 var toggleButton = (ToggleButton)s;
@@ -69,6 +79,14 @@ namespace NewLeaf
                 var textBox = (TextBox)sender;
                 DatabaseEntry.LeafContent = textBox.Text;
                 DatabaseHelper.UpdateEntry(DatabaseEntry);
+            }
+        }
+
+        private void ColorPicker_MouseLeave(object sender, MouseEventArgs e)
+        {
+            if (ColorPicker.Visibility == Visibility.Visible)
+            {
+                ColorPicker.Visibility = Visibility.Collapsed;
             }
         }
     }
