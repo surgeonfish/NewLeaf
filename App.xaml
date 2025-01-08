@@ -9,7 +9,8 @@
                 <ResourceDictionary Source="/Themes/Default.xaml"/>
             </ResourceDictionary.MergedDictionaries>
 
-            <local:ThemeColorConverter x:Key="ThemeColorConverter"/>
+            <local:ThemeColorConverter x:Key="TittleThemeColorConverter" Type="Title"/>
+            <local:ThemeColorConverter x:Key="ContentThemeColorConverter" Type="Content"/>
 
             <Style x:Key="CaptionButtonStyle" TargetType="{x:Type Button}">
                 <Setter Property="FontFamily" Value="Segoe Fluent Icons"/>

@@ -7,10 +7,15 @@
              mc:Ignorable="d"
              MouseDoubleClick="UserControl_MouseDoubleClick">
     <UserControl.Resources>
-        <SolidColorBrush x:Key="ContentColorBrush" Color="{Binding LeafColor, Converter={StaticResource ThemeColorConverter}, ConverterParameter=Content}"/>
+        <SolidColorBrush x:Key="TitleColorBrush"
+                         Color="{Binding LeafColor, Converter={StaticResource TittleThemeColorConverter}}"/>
+        <SolidColorBrush x:Key="ContentColorBrush"
+                         Color="{Binding LeafColor, Converter={StaticResource ContentThemeColorConverter}}"/>
     </UserControl.Resources>
 
-    <Border CornerRadius="8" Margin="4,2" Background="{StaticResource ContentColorBrush}">
+    <Border CornerRadius="8"
+            Margin="4,2"
+            Background="{StaticResource ContentColorBrush}">
         <Grid Margin="0,2">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"></RowDefinition>

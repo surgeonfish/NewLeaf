@@ -12,8 +12,10 @@
         MinHeight="100"
         MinWidth="192">
     <Window.Resources>
-        <SolidColorBrush x:Key="TitleColorBrush" Color="{Binding LeafColor, Converter={StaticResource ThemeColorConverter}, ConverterParameter=Title}"/>
-        <SolidColorBrush x:Key="ContentColorBrush" Color="{Binding LeafColor, Converter={StaticResource ThemeColorConverter}, ConverterParameter=Content}"/>
+        <SolidColorBrush x:Key="TitleColorBrush"
+                         Color="{Binding LeafColor, Converter={StaticResource TittleThemeColorConverter}}"/>
+        <SolidColorBrush x:Key="ContentColorBrush"
+                         Color="{Binding LeafColor, Converter={StaticResource ContentThemeColorConverter}}"/>
     </Window.Resources>
 
     <WindowChrome.WindowChrome>
