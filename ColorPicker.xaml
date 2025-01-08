@@ -13,8 +13,27 @@
         <Style x:Key="ColorPikerButtonSytle" TargetType="{x:Type ToggleButton}">
             <Setter Property="FontFamily" Value="Segoe Fluent Icons"/>
             <Setter Property="FontSize" Value="16"/>
-            <Setter Property="BorderBrush" Value="Transparent"/>
             <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ButtonBase}">
+                        <Border x:Name="border"
+                                Background="{TemplateBinding Background}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                Opacity="1">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center"/>
+                        </Border>
+
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Opacity" TargetName="border" Value="0.8"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+
             <Style.Triggers>
                 <Trigger Property="IsChecked" Value="True">
                     <Setter Property="Content" Value="&#xe73e;"/>
@@ -34,7 +53,8 @@
         <SolidColorBrush x:Key="PickerCarbonBrush" Color="{StaticResource PickerCarbon}"/>
     </UserControl.Resources>
 
-    <Grid x:Name="ColorPalette">
+    <Grid x:Name="ColorPalette"
+          Background="White">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
