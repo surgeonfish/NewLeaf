@@ -56,6 +56,12 @@ namespace NewLeaf
                 }
             };
 
+            DeleteLeafButton.Click += (s, e) =>
+            {
+                DatabaseHelper.DeleteEntry(DatabaseEntry.LeafId);
+                Close();
+            };
+
             CloseButton.Click += (s, e) =>
             {
                 Close();

@@ -61,6 +61,10 @@
                             Style="{StaticResource CaptionButtonStyle}"
                             Content="&#xe74e;"
                             FontSize="16"/>
+                    <Button x:Name="DeleteLeafButton"
+                            Style="{StaticResource CaptionButtonStyle}"
+                            Content="&#xe74d;"
+                            FontSize="16"/>
                 </StackPanel>
 
                 <!-- Close Button -->
