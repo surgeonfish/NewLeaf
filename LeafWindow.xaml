@@ -53,13 +53,13 @@
                             HorizontalAlignment="Left">
                     <ToggleButton x:Name="PinButton"
                                   Style="{StaticResource CaptionToggleButtonStyle}"/>
-                    <Button x:Name="SaveLeafButton"
-                            Style="{StaticResource CaptionButtonStyle}"
-                            Content="&#xe74e;"
-                            FontSize="16"/>
                     <Button x:Name="ColorPickerButton"
                             Style="{StaticResource CaptionButtonStyle}"
                             Content="&#xe790;"
+                            FontSize="16"/>
+                    <Button x:Name="SaveLeafButton"
+                            Style="{StaticResource CaptionButtonStyle}"
+                            Content="&#xe74e;"
                             FontSize="16"/>
                 </StackPanel>
 
