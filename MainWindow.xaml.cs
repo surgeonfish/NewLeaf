@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
 using System.Windows.Input;
@@ -13,8 +14,12 @@ namespace NewLeaf
     {
         private readonly DatabaseHelper databaseHelper;
 
+        public ObservableCollection<LeafControl> LeafControls { get; set; }
+
         public MainWindow()
         {
+            LeafControls = new ObservableCollection<LeafControl>();
+
             InitializeComponent();
 
             databaseHelper = new DatabaseHelper("test.db");
@@ -38,15 +43,23 @@ namespace NewLeaf
                 string date = DateTime.Now.ToString("yyyy-MM-dd");
                 string content = "";
                 string color = "Yellow";
-                if (Leaves.Children.Count > 0)
+                if (Leaves.Items.Count > 0)
                 {
                     // Default to the color of the first leaf.
-                    LeafControl leafControl = Leaves.Children[Leaves.Children.Count - 1] as LeafControl;
+                    LeafControl leafControl = Leaves.Items[Leaves.Items.Count - 1] as LeafControl;
                     color = leafControl.DatabaseEntry.LeafColor;
                 }
                 databaseHelper.InsertEntry(date, content, color);
-                // Reload leaves if the database is updated.
-                LoadLeaves();
+
+                DatabaseEntry entry = new DatabaseEntry()
+                {
+                    LeafContent = content,
+                    LeafColor = color,
+                    DateCreated = date,
+                    DateLastUpdated = date,
+                };
+                LeafControl leaf = new LeafControl(entry, databaseHelper);
+                LeafControls.Add(leaf);
             };
 
             MinimizeButton.Click += (s, e) =>
@@ -68,12 +81,10 @@ namespace NewLeaf
         private void LoadLeaves()
         {
             List<DatabaseEntry> entries = databaseHelper.GetAllEntries();
-
-            Leaves.Children.Clear();
             foreach (DatabaseEntry entry in entries)
             {
                 LeafControl leaf = new LeafControl(entry, databaseHelper);
-                Leaves.Children.Add(leaf);
+                LeafControls.Add(leaf);
             }
         }
     }

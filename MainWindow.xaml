@@ -6,40 +6,11 @@
         xmlns:local="clr-namespace:NewLeaf"
         mc:Ignorable="d"
         WindowStyle="None"
+        Name="mainWindow"
         Title="MainWindow"
         Height="500"
         Width="335"
         MinWidth="335">
-    <Window.Resources>
-        <Style x:Key="LeavesViewerStyle" TargetType="{x:Type ScrollViewer}">
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type ScrollViewer}">
-                        <Grid x:Name="Grid" Background="{TemplateBinding Background}">
-                            <ScrollContentPresenter x:Name="PART_ScrollContentPresenter"
-                                                    CanHorizontallyScroll="False"
-                                                    ContentTemplate="{TemplateBinding ContentTemplate}"
-                                                    CanVerticallyScroll="False"
-                                                    Content="{TemplateBinding Content}"
-                                                    CanContentScroll="{TemplateBinding CanContentScroll}"
-                                                    Margin="{TemplateBinding Padding}"/>
-                            <ScrollBar x:Name="PART_VerticalScrollBar"
-                                       AutomationProperties.AutomationId="VerticalScrollBar"
-                                       Cursor="Arrow"
-                                       Maximum="{TemplateBinding ScrollableHeight}"
-                                       Minimum="0"
-                                       Value="{Binding VerticalOffset, Mode=OneWay, RelativeSource={RelativeSource Mode=TemplatedParent}}"
-                                       ViewportSize="{TemplateBinding ViewportHeight}"
-                                       Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}"
-                                       HorizontalAlignment="Right"
-                                       Panel.ZIndex="1"/>
-                        </Grid>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-    </Window.Resources>
-
     <WindowChrome.WindowChrome>
         <WindowChrome/>
     </WindowChrome.WindowChrome>
@@ -87,13 +58,9 @@
         </Border>
 
         <!-- Content -->
-        <ScrollViewer Grid.Row="1"
-                      Style="{StaticResource LeavesViewerStyle}"
-                      VerticalScrollBarVisibility="Auto"
-                      Margin="0,4,0,0">
-            <StackPanel x:Name="Leaves">
-                <!-- Populated with LeafControls here. -->
-            </StackPanel>
-        </ScrollViewer>
+        <ListView x:Name="Leaves"
+                  Grid.Row="1"
+                  ItemsSource="{Binding ElementName=mainWindow, Path=LeafControls}">
+        </ListView>
     </Grid>
 </Window>
