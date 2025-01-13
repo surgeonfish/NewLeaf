@@ -78,6 +78,7 @@
       <DependentUpon>ColorPicker.xaml</DependentUpon>
     </Compile>
     <Compile Include="ThemeColorConverter.cs" />
+    <Compile Include="ViewModel\ViewModelBase.cs" />
     <Page Include="ColorPicker.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
