@@ -100,8 +100,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DatabaseEntry.cs" />
-    <Compile Include="DatabaseHelper.cs" />
+    <Compile Include="Model\DatabaseEntry.cs" />
+    <Compile Include="Model\DatabaseHelper.cs" />
     <Compile Include="LeafControl.xaml.cs">
       <DependentUpon>LeafControl.xaml</DependentUpon>
     </Compile>

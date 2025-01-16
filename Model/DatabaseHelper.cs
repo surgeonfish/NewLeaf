@@ -2,7 +2,7 @@
 using System.Data.SQLite;
 using System.IO;
 
-namespace NewLeaf
+namespace NewLeaf.Model
 {
     public partial class DatabaseHelper
     {

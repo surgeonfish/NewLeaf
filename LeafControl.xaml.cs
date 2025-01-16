@@ -1,4 +1,5 @@
-﻿using System.Windows.Controls;
+﻿using NewLeaf.Model;
+using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace NewLeaf

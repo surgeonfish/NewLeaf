@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace NewLeaf
+namespace NewLeaf.Model
 {
     public class DatabaseEntry : INotifyPropertyChanged
     {

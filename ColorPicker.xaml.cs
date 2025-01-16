@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using NewLeaf.Model;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 
