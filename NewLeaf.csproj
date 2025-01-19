@@ -79,6 +79,7 @@
     </Compile>
     <Compile Include="Model\LeafModel.cs" />
     <Compile Include="ThemeColorConverter.cs" />
+    <Compile Include="ViewModel\LeaflViewModel.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
     <Page Include="ColorPicker.xaml">
       <SubType>Designer</SubType>
