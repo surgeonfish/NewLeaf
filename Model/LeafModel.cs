@@ -3,8 +3,10 @@
     public class LeafModel
     {
         public DatabaseHelper DatabaseHelper = null;
+
         public int Id { get; set; }
-        public string Content
+
+        public virtual string Content
         {
             get {  return ContentProperty; }
             set
@@ -14,7 +16,9 @@
             }
         }
         private string ContentProperty;
-        public string Color {
+
+        public virtual string Color
+        {
             get { return ColorProperty; }
             set
             {
@@ -23,7 +27,9 @@
             }
         }
         private string ColorProperty;
+
         public string DateCreated { get; set; }
+
         public string DateLastUpdated { get; set; }
     }
 }

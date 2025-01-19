@@ -49,12 +49,11 @@ namespace NewLeaf
                     // Default to the color of the last leaf.
                     LeafControl lastLeafControl = Leaves.Items[Leaves.Items.Count - 1] as LeafControl;
                     LeaflViewModel lastLeafViewModel = lastLeafControl.DataContext as LeaflViewModel;
-                    color = lastLeafViewModel.LeafModel.Color;
+                    color = lastLeafViewModel.Color;
                 }
 
                 long lastId = databaseHelper.InsertEntry(date, content, color);
-                LeafModel leafModel = databaseHelper.GetLeaf(lastId);
-                LeaflViewModel leaflViewModel = new LeaflViewModel(leafModel);
+                LeaflViewModel leaflViewModel = databaseHelper.GetLeaf(lastId);
                 LeafControl leafControl = new LeafControl(this, leaflViewModel);
                 LeafControls.Add(leafControl);
             };
@@ -77,9 +76,8 @@ namespace NewLeaf
 
         private void LoadLeaves()
         {
-            databaseHelper.GetAllLeaves((leafModel) =>
+            databaseHelper.GetAllLeaves((leaflViewModel) =>
             {
-                LeaflViewModel leaflViewModel = new LeaflViewModel(leafModel);
                 LeafControl leafControl = new LeafControl(this, leaflViewModel);
                 LeafControls.Add(leafControl);
                 return 0;

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NewLeaf.ViewModel;
+using System;
 using System.Data.SQLite;
 using System.IO;
 
@@ -88,7 +89,7 @@ namespace NewLeaf.Model
             }
         }
 
-        public void GetAllLeaves(Func<LeafModel, int> Adder)
+        public void GetAllLeaves(Func<LeaflViewModel, int> Adder)
         {
             using (var connection = new SQLiteConnection(connectionString))
             {
@@ -99,7 +100,7 @@ namespace NewLeaf.Model
                 {
                     while (reader.Read())
                     {
-                        var leaf = new LeafModel()
+                        var leaflViewModel = new LeaflViewModel()
                         {
                             Id = reader.GetInt32(0),
                             Content = reader.GetString(1),
@@ -108,13 +109,13 @@ namespace NewLeaf.Model
                             DateLastUpdated = reader.GetString(4),
                             DatabaseHelper = this,
                         };
-                        Adder(leaf);
+                        Adder(leaflViewModel);
                     }
                 }
             }
         }
 
-        public LeafModel GetLeaf(long id)
+        public LeaflViewModel GetLeaf(long id)
         {
             using (var connection = new SQLiteConnection(connectionString))
             {
@@ -125,7 +126,7 @@ namespace NewLeaf.Model
                 using (var reader = command.ExecuteReader())
                 {
                     reader.Read();
-                    var leaf = new LeafModel()
+                    var leaflViewModel = new LeaflViewModel()
                     {
                         Id = reader.GetInt32(0),
                         Content = reader.GetString(1),
@@ -134,7 +135,7 @@ namespace NewLeaf.Model
                         DateLastUpdated = reader.GetString(4),
                         DatabaseHelper = this,
                     };
-                    return leaf;
+                    return leaflViewModel;
                 }
             }
         }

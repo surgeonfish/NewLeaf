@@ -21,7 +21,7 @@ namespace NewLeaf
 
             foreach (ToggleButton button in ColorPalette.Children)
             {
-                if (button.Name == leaflViewModel.LeafModel.Color)
+                if (button.Name == leaflViewModel.Color)
                 {
                     button.IsChecked = true;
                 }
@@ -44,7 +44,7 @@ namespace NewLeaf
                 }
 
                 LeaflViewModel leaflViewModel = DataContext as LeaflViewModel;
-                leaflViewModel.LeafModel.Color = toggleButton.Name;
+                leaflViewModel.Color = toggleButton.Name;
             }
         }
     }
