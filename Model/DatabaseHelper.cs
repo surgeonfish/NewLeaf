@@ -49,7 +49,7 @@ namespace NewLeaf.Model
             }
         }
 
-        public void DeleteEntry(int id)
+        public void DeleteLeaf(int id)
         {
             using (var connection = new SQLiteConnection(connectionString))
             {

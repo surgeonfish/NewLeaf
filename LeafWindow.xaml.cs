@@ -54,6 +54,7 @@ namespace NewLeaf
             DeleteLeafButton.Click += (s, e) =>
             {
                 Close();
+                mainWindow.DeleteLeaf(leafControl);
             };
 
             CloseButton.Click += (s, e) =>

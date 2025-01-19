@@ -83,5 +83,12 @@ namespace NewLeaf
                 return 0;
             });
         }
+
+        public void DeleteLeaf(LeafControl leafControl)
+        {
+            LeaflViewModel leaflViewModel = leafControl.DataContext as LeaflViewModel;
+            databaseHelper.DeleteLeaf(leaflViewModel.Id);
+            LeafControls.Remove(leafControl);
+        }
     }
 }
