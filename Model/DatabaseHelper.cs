@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+﻿using System;
 using System.Data.SQLite;
 using System.IO;
 
@@ -31,19 +31,20 @@ namespace NewLeaf.Model
             }
         }
 
-        public void InsertEntry(string dateCreated, string leafContent, string leafColor)
+        public long InsertEntry(string dateCreated, string leafContent, string leafColor)
         {
             using (var connection = new SQLiteConnection(connectionString))
             {
                 connection.Open();
-                string sql = "INSERT INTO Leaves (Content, Color, DateCreated, DateLastUpdated) VALUES (@Content, @Color, @DateCreated, @DateLastUpdated)";
+                string sql = "INSERT INTO Leaves (Content, Color, DateCreated, DateLastUpdated) VALUES (@Content, @Color, @DateCreated, @DateLastUpdated); SELECT last_insert_rowid();";
                 var command = new SQLiteCommand(sql, connection);
                 command.Parameters.AddWithValue("@Content", leafContent);
                 command.Parameters.AddWithValue("@Color", leafColor);
                 command.Parameters.AddWithValue("@DateCreated", dateCreated);
                 // The last upated date should be the same as the created data upon creation.
                 command.Parameters.AddWithValue("@DateLastUpdated", dateCreated);
-                command.ExecuteNonQuery();
+                long lastId = (long)command.ExecuteScalar();
+                return lastId;
             }
         }
 
@@ -59,24 +60,36 @@ namespace NewLeaf.Model
             }
         }
 
-        public void UpdateEntry(DatabaseEntry databaseEntry)
+        public void UpdateContent(int id, string content)
         {
             using (var connection = new SQLiteConnection(connectionString))
             {
                 connection.Open();
-                string sql = "UPDATE Leaves SET Content = @Content, Color = @Color, DateLastUpdated = @DateLastUpdated WHERE Id = @Id";
+                string sql = "UPDATE Leaves SET Content = @Content, DateLastUpdated = @DateLastUpdated WHERE Id = @Id";
                 var command = new SQLiteCommand(sql, connection);
-                command.Parameters.AddWithValue("@Id", databaseEntry.LeafId);
-                command.Parameters.AddWithValue("@Content", databaseEntry.LeafContent);
-                command.Parameters.AddWithValue("@Color", databaseEntry.LeafColor);
-                command.Parameters.AddWithValue("@DateLastUpdated", databaseEntry.DateLastUpdated);
+                command.Parameters.AddWithValue("@Id", id);
+                command.Parameters.AddWithValue("@Content", content);
+                command.Parameters.AddWithValue("@DateLastUpdated", DateTime.Now.ToString("yyyy-MM-dd"));
                 command.ExecuteNonQuery();
             }
         }
 
-        public List<DatabaseEntry> GetAllEntries()
+        public void UpdateColor(int id, string color)
         {
-            var entries = new List<DatabaseEntry>();
+            using (var connection = new SQLiteConnection(connectionString))
+            {
+                connection.Open();
+                string sql = "UPDATE Leaves SET Color = @Color, DateLastUpdated = @DateLastUpdated WHERE Id = @Id";
+                var command = new SQLiteCommand(sql, connection);
+                command.Parameters.AddWithValue("@Id", id);
+                command.Parameters.AddWithValue("@Color", color);
+                command.Parameters.AddWithValue("@DateLastUpdated", DateTime.Now.ToString("yyyy-MM-dd"));
+                command.ExecuteNonQuery();
+            }
+        }
+
+        public void GetAllLeaves(Func<LeafModel, int> Adder)
+        {
             using (var connection = new SQLiteConnection(connectionString))
             {
                 connection.Open();
@@ -86,18 +99,44 @@ namespace NewLeaf.Model
                 {
                     while (reader.Read())
                     {
-                        entries.Add(new DatabaseEntry
+                        var leaf = new LeafModel()
                         {
-                            LeafId = reader.GetInt32(0),
-                            LeafContent = reader.GetString(1),
-                            LeafColor = reader.GetString(2),
+                            Id = reader.GetInt32(0),
+                            Content = reader.GetString(1),
+                            Color = reader.GetString(2),
                             DateCreated = reader.GetString(3),
                             DateLastUpdated = reader.GetString(4),
-                        });
+                            DatabaseHelper = this,
+                        };
+                        Adder(leaf);
                     }
                 }
             }
-            return entries;
+        }
+
+        public LeafModel GetLeaf(long id)
+        {
+            using (var connection = new SQLiteConnection(connectionString))
+            {
+                connection.Open();
+                string sql = "SELECT * FROM Leaves WHERE id = @id";
+                var command = new SQLiteCommand(sql, connection);
+                command.Parameters.AddWithValue("@id", id);
+                using (var reader = command.ExecuteReader())
+                {
+                    reader.Read();
+                    var leaf = new LeafModel()
+                    {
+                        Id = reader.GetInt32(0),
+                        Content = reader.GetString(1),
+                        Color = reader.GetString(2),
+                        DateCreated = reader.GetString(3),
+                        DateLastUpdated = reader.GetString(4),
+                        DatabaseHelper = this,
+                    };
+                    return leaf;
+                }
+            }
         }
     }
 }

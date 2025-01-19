@@ -1,4 +1,4 @@
-﻿using NewLeaf.Model;
+﻿using NewLeaf.ViewModel;
 using System.Windows.Controls;
 using System.Windows.Input;
 
@@ -9,23 +9,21 @@ namespace NewLeaf
     /// </summary>
     public partial class LeafControl : UserControl
     {
-        public readonly DatabaseEntry DatabaseEntry;
-        private readonly DatabaseHelper DatabaseHelper;
+        private readonly MainWindow MainWindow = null;
         private LeafWindow LeafWindow = null;
 
-        public LeafControl(DatabaseEntry databaseEntry, DatabaseHelper databaseHelper)
+        public LeafControl(MainWindow mainWindow, LeaflViewModel leaflViewModel)
         {
             InitializeComponent();
-            DatabaseEntry = databaseEntry;
-            DataContext = databaseEntry;
-            DatabaseHelper = databaseHelper;
+            DataContext = leaflViewModel;
+            MainWindow = mainWindow;
         }
 
         private void UserControl_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             if (LeafWindow == null || !LeafWindow.IsLoaded)
             {
-                LeafWindow = new LeafWindow(DatabaseEntry, DatabaseHelper);
+                LeafWindow = new LeafWindow(MainWindow, this, DataContext as LeaflViewModel);
                 LeafWindow.Show();
             }
             else

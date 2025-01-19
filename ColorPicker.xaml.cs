@@ -1,4 +1,4 @@
-﻿using NewLeaf.Model;
+﻿using NewLeaf.ViewModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
@@ -10,21 +10,18 @@ namespace NewLeaf
     /// </summary>
     public partial class ColorPicker : UserControl
     {
-        private DatabaseEntry DatabaseEntry;
-        private DatabaseHelper DatabaseHelper;
         public ColorPicker()
         {
             InitializeComponent();
         }
 
-        public void SetViewModel(DatabaseEntry databaseEntry, DatabaseHelper databaseHelper)
+        public void SetViewModel(LeaflViewModel leaflViewModel)
         {
-            DatabaseEntry = databaseEntry;
-            DatabaseHelper = databaseHelper;
+            DataContext = leaflViewModel;
 
             foreach (ToggleButton button in ColorPalette.Children)
             {
-                if (button.Name == DatabaseEntry.LeafColor)
+                if (button.Name == leaflViewModel.LeafModel.Color)
                 {
                     button.IsChecked = true;
                 }
@@ -46,8 +43,8 @@ namespace NewLeaf
                     }
                 }
 
-                DatabaseEntry.LeafColor = toggleButton.Name;
-                DatabaseHelper.UpdateEntry(DatabaseEntry);
+                LeaflViewModel leaflViewModel = DataContext as LeaflViewModel;
+                leaflViewModel.LeafModel.Color = toggleButton.Name;
             }
         }
     }

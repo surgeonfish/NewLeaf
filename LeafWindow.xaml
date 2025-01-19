@@ -13,9 +13,9 @@
         MinWidth="192">
     <Window.Resources>
         <SolidColorBrush x:Key="TitleColorBrush"
-                         Color="{Binding LeafColor, Converter={StaticResource TittleThemeColorConverter}}"/>
+                         Color="{Binding LeafModel.Color, Converter={StaticResource TittleThemeColorConverter}}"/>
         <SolidColorBrush x:Key="ContentColorBrush"
-                         Color="{Binding LeafColor, Converter={StaticResource ContentThemeColorConverter}}"/>
+                         Color="{Binding LeafModel.Color, Converter={StaticResource ContentThemeColorConverter}}"/>
     </Window.Resources>
 
     <WindowChrome.WindowChrome>
@@ -79,7 +79,7 @@
         <!-- Content -->
         <TextBox x:Name="TextEditor"
                  Grid.Row="1"
-                 Text="{Binding LeafContent}"
+                 Text="{Binding LeafModel.Content}"
                  BorderBrush="Transparent"
                  BorderThickness="0"
                  Background="Transparent"

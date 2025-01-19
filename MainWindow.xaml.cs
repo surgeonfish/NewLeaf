@@ -1,6 +1,6 @@
 ﻿using NewLeaf.Model;
+using NewLeaf.ViewModel;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
@@ -46,21 +46,17 @@ namespace NewLeaf
                 string color = "Yellow";
                 if (Leaves.Items.Count > 0)
                 {
-                    // Default to the color of the first leaf.
-                    LeafControl leafControl = Leaves.Items[Leaves.Items.Count - 1] as LeafControl;
-                    color = leafControl.DatabaseEntry.LeafColor;
+                    // Default to the color of the last leaf.
+                    LeafControl lastLeafControl = Leaves.Items[Leaves.Items.Count - 1] as LeafControl;
+                    LeaflViewModel lastLeafViewModel = lastLeafControl.DataContext as LeaflViewModel;
+                    color = lastLeafViewModel.LeafModel.Color;
                 }
-                databaseHelper.InsertEntry(date, content, color);
 
-                DatabaseEntry entry = new DatabaseEntry()
-                {
-                    LeafContent = content,
-                    LeafColor = color,
-                    DateCreated = date,
-                    DateLastUpdated = date,
-                };
-                LeafControl leaf = new LeafControl(entry, databaseHelper);
-                LeafControls.Add(leaf);
+                long lastId = databaseHelper.InsertEntry(date, content, color);
+                LeafModel leafModel = databaseHelper.GetLeaf(lastId);
+                LeaflViewModel leaflViewModel = new LeaflViewModel(leafModel);
+                LeafControl leafControl = new LeafControl(this, leaflViewModel);
+                LeafControls.Add(leafControl);
             };
 
             MinimizeButton.Click += (s, e) =>
@@ -81,12 +77,13 @@ namespace NewLeaf
 
         private void LoadLeaves()
         {
-            List<DatabaseEntry> entries = databaseHelper.GetAllEntries();
-            foreach (DatabaseEntry entry in entries)
+            databaseHelper.GetAllLeaves((leafModel) =>
             {
-                LeafControl leaf = new LeafControl(entry, databaseHelper);
-                LeafControls.Add(leaf);
-            }
+                LeaflViewModel leaflViewModel = new LeaflViewModel(leafModel);
+                LeafControl leafControl = new LeafControl(this, leaflViewModel);
+                LeafControls.Add(leafControl);
+                return 0;
+            });
         }
     }
 }

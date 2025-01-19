@@ -1,4 +1,5 @@
 ﻿using NewLeaf.Model;
+using NewLeaf.ViewModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
@@ -11,15 +12,10 @@ namespace NewLeaf
     /// </summary>
     public partial class LeafWindow : Window
     {
-        private readonly DatabaseEntry DatabaseEntry;
-        private readonly DatabaseHelper DatabaseHelper;
-
-        public LeafWindow(DatabaseEntry databaseEntry, DatabaseHelper databaseHelper)
+        public LeafWindow(MainWindow mainWindow, LeafControl leafControl, LeaflViewModel leaflViewModel)
         {
             InitializeComponent();
-            DatabaseEntry = databaseEntry;
-            DatabaseHelper = databaseHelper;
-            DataContext = databaseEntry;
+            DataContext = leaflViewModel;
 
             TitleBar.MouseMove += (s, e) =>
             {
@@ -31,8 +27,6 @@ namespace NewLeaf
 
             SaveLeafButton.Click += (s, e) =>
             {
-                DatabaseEntry.LeafContent = TextEditor.Text;
-                DatabaseHelper.UpdateEntry(DatabaseEntry);
             };
 
             ColorPickerButton.Click += (s, e) =>
@@ -43,7 +37,7 @@ namespace NewLeaf
                 }
             };
 
-            ColorPicker.SetViewModel(DatabaseEntry, DatabaseHelper);
+            ColorPicker.SetViewModel(DataContext as LeaflViewModel);
 
             PinButton.Click += (s, e) =>
             {
@@ -59,7 +53,6 @@ namespace NewLeaf
 
             DeleteLeafButton.Click += (s, e) =>
             {
-                DatabaseHelper.DeleteEntry(DatabaseEntry.LeafId);
                 Close();
             };
 
@@ -74,8 +67,6 @@ namespace NewLeaf
             if (e.Key == Key.S && (Keyboard.Modifiers & ModifierKeys.Control) == ModifierKeys.Control)
             {
                 var textBox = (TextBox)sender;
-                DatabaseEntry.LeafContent = textBox.Text;
-                DatabaseHelper.UpdateEntry(DatabaseEntry);
             }
         }
 
