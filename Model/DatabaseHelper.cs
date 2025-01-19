@@ -32,7 +32,7 @@ namespace NewLeaf.Model
             }
         }
 
-        public long InsertEntry(string dateCreated, string leafContent, string leafColor)
+        public long InsertLeaf(string dateCreated, string leafContent, string leafColor)
         {
             using (var connection = new SQLiteConnection(connectionString))
             {

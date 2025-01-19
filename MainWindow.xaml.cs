@@ -52,7 +52,7 @@ namespace NewLeaf
                     color = lastLeafViewModel.Color;
                 }
 
-                long lastId = databaseHelper.InsertEntry(date, content, color);
+                long lastId = databaseHelper.InsertLeaf(date, content, color);
                 LeaflViewModel leaflViewModel = databaseHelper.GetLeaf(lastId);
                 LeafControl leafControl = new LeafControl(this, leaflViewModel);
                 LeafControls.Add(leafControl);
