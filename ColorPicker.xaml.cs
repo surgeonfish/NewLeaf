@@ -2,6 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
+using System.Windows.Input;
 
 namespace NewLeaf
 {
@@ -45,6 +46,14 @@ namespace NewLeaf
 
                 LeaflViewModel leaflViewModel = DataContext as LeaflViewModel;
                 leaflViewModel.Color = toggleButton.Name;
+            }
+        }
+
+        private void OnMouseLeave(object sender, MouseEventArgs e)
+        {
+            if (Visibility == Visibility.Visible)
+            {
+                Visibility = Visibility.Collapsed;
             }
         }
     }

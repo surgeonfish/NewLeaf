@@ -36,7 +36,6 @@
                            Panel.ZIndex="1"
                            HorizontalAlignment="Right"
                            Visibility="Collapsed"
-                           MouseLeave="ColorPicker_MouseLeave"
                            WindowChrome.IsHitTestVisibleInChrome="True"/>
 
         <!-- Title Bar -->

@@ -70,13 +70,5 @@ namespace NewLeaf
                 var textBox = (TextBox)sender;
             }
         }
-
-        private void ColorPicker_MouseLeave(object sender, MouseEventArgs e)
-        {
-            if (ColorPicker.Visibility == Visibility.Visible)
-            {
-                ColorPicker.Visibility = Visibility.Collapsed;
-            }
-        }
     }
 }
