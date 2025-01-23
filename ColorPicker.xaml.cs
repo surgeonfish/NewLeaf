@@ -36,6 +36,15 @@ namespace NewLeaf
             }
         }
 
+        private void OnPreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            var toggleButton = sender as ToggleButton;
+            if (toggleButton.IsChecked.HasValue && toggleButton.IsChecked.Value)
+            {
+                e.Handled = true;
+            }
+        }
+
         private void OnMouseLeave(object sender, MouseEventArgs e)
         {
             if (Visibility == Visibility.Visible)

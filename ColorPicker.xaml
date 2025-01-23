@@ -42,6 +42,7 @@
             </Setter>
 
             <EventSetter Event="Click" Handler="OnClick"/>
+            <EventSetter Event="PreviewMouseLeftButtonDown" Handler="OnPreviewMouseLeftButtonDown"/>
 
             <Style.Triggers>
                 <Trigger Property="IsChecked" Value="True">
