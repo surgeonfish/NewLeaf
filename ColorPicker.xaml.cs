@@ -28,7 +28,7 @@ namespace NewLeaf
             }
         }
 
-        private void ToggleButton_Click(object sender, RoutedEventArgs e)
+        private void OnClick(object sender, RoutedEventArgs e)
         {
             if (sender is ToggleButton toggleButton && toggleButton.IsChecked == true)
             {
