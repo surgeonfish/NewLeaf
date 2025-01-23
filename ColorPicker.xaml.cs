@@ -43,5 +43,17 @@ namespace NewLeaf
                 Visibility = Visibility.Collapsed;
             }
         }
+
+        private void OnLoaded(object sender, RoutedEventArgs e)
+        {
+            LeaflViewModel leaflViewModel = DataContext as LeaflViewModel;
+            foreach (ToggleButton toggleButton in ColorPalette.Children)
+            {
+                if (toggleButton.Name == leaflViewModel.Color)
+                {
+                    toggleButton.IsChecked = true;
+                }
+            }
+        }
     }
 }

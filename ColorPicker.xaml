@@ -8,6 +8,7 @@
              MaxWidth="320"
              MinWidth="192"
              MouseLeave="OnMouseLeave"
+             Loaded="OnLoaded"
              d:DesignHeight="24"
              d:DesignWidth="320">
     <UserControl.Resources>
