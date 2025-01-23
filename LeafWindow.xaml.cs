@@ -1,5 +1,4 @@
-﻿using NewLeaf.Model;
-using NewLeaf.ViewModel;
+﻿using NewLeaf.ViewModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
@@ -67,7 +66,11 @@ namespace NewLeaf
         {
             if (e.Key == Key.S && (Keyboard.Modifiers & ModifierKeys.Control) == ModifierKeys.Control)
             {
-                var textBox = (TextBox)sender;
+                if (sender is TextBox textBox)
+                {
+                    LeaflViewModel leaflViewModel = DataContext as LeaflViewModel;
+                    leaflViewModel.Content = textBox.Text;
+                }
             }
         }
     }
