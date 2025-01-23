@@ -16,19 +16,6 @@ namespace NewLeaf
             InitializeComponent();
         }
 
-        public void SetViewModel(LeaflViewModel leaflViewModel)
-        {
-            DataContext = leaflViewModel;
-
-            foreach (ToggleButton button in ColorPalette.Children)
-            {
-                if (button.Name == leaflViewModel.Color)
-                {
-                    button.IsChecked = true;
-                }
-            }
-        }
-
         private void OnClick(object sender, RoutedEventArgs e)
         {
             if (sender is ToggleButton toggleButton && toggleButton.IsChecked == true)
