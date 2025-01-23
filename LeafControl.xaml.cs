@@ -19,7 +19,7 @@ namespace NewLeaf
             MainWindow = mainWindow;
         }
 
-        private void UserControl_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        private void OnMouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             if (LeafWindow == null || !LeafWindow.IsLoaded)
             {
