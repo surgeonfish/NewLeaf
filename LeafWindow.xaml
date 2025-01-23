@@ -84,6 +84,6 @@
                  Background="Transparent"
                  Margin="4,4"
                  TextWrapping="Wrap"
-                 KeyDown="TextBox_KeyDown"/>
+                 KeyDown="OnKeyDown"/>
     </Grid>
 </Window>
