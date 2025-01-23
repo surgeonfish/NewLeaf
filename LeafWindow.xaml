@@ -36,6 +36,7 @@
                            Panel.ZIndex="1"
                            HorizontalAlignment="Right"
                            Visibility="Collapsed"
+                           DataContext="{Binding DataContext, RelativeSource={RelativeSource AncestorType=Window}}"
                            WindowChrome.IsHitTestVisibleInChrome="True"/>
 
         <!-- Title Bar -->

@@ -36,8 +36,6 @@ namespace NewLeaf
                 }
             };
 
-            ColorPicker.SetViewModel(DataContext as LeaflViewModel);
-
             PinButton.Click += (s, e) =>
             {
                 var toggleButton = (ToggleButton)s;
