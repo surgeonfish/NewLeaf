@@ -41,6 +41,8 @@
                 </Setter.Value>
             </Setter>
 
+            <EventSetter Event="Click" Handler="OnClick"/>
+
             <Style.Triggers>
                 <Trigger Property="IsChecked" Value="True">
                     <Setter Property="Content" Value="&#xe73e;"/>
@@ -75,36 +77,29 @@
         <ToggleButton Grid.Column="0"
                       Name="Yellow"
                       Style="{StaticResource ColorPikerButtonSytle}"
-                      Click="OnClick"
                       Background="{StaticResource PickerYellowBrush}"/>
         <ToggleButton Grid.Column="1"
                       Name="Green"
-                      Click="OnClick"
                       Style="{StaticResource ColorPikerButtonSytle}"
                       Background="{StaticResource PickerGreenBrush}"/>
         <ToggleButton Grid.Column="2"
                       Name="Pink"
-                      Click="OnClick"
                       Style="{StaticResource ColorPikerButtonSytle}"
                       Background="{StaticResource PickerPinkBrush}"/>
         <ToggleButton Grid.Column="3"
                       Name="Purple"
-                      Click="OnClick"
                       Style="{StaticResource ColorPikerButtonSytle}"
                       Background="{StaticResource PickerPurpleBrush}"/>
         <ToggleButton Grid.Column="4"
                       Name="Blue"
-                      Click="OnClick"
                       Style="{StaticResource ColorPikerButtonSytle}"
                       Background="{StaticResource PickerBlueBrush}"/>
         <ToggleButton Grid.Column="5"
                       Name="Gray"
-                      Click="OnClick"
                       Style="{StaticResource ColorPikerButtonSytle}"
                       Background="{StaticResource PickerGrayBrush}"/>
         <ToggleButton Grid.Column="6"
                       Name="Carbon"
-                      Click="OnClick"
                       Style="{StaticResource ColorPikerButtonSytle}"
                       Background="{StaticResource PickerCarbonBrush}"/>
     </Grid>
