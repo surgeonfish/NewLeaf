@@ -120,14 +120,6 @@
                     <Setter Property="Visibility" TargetName="GlyphPanel" Value="Visible"/>
                     <Setter Property="Visibility" TargetName="Icon" Value="Collapsed"/>
                 </Trigger>
-                <Trigger Property="IsHighlighted" Value="True">
-                    <Setter Property="Background" TargetName="templateRoot" Value="{StaticResource MenuItem.Highlight.Background}"/>
-                    <Setter Property="BorderBrush" TargetName="templateRoot" Value="{StaticResource MenuItem.Highlight.Border}"/>
-                </Trigger>
-                <Trigger Property="IsEnabled" Value="False">
-                    <Setter Property="TextElement.Foreground" TargetName="templateRoot" Value="{StaticResource Menu.Disabled.Foreground}"/>
-                    <Setter Property="Fill" TargetName="GlyphPanel" Value="{StaticResource Menu.Disabled.Foreground}"/>
-                </Trigger>
                 <Trigger Property="ScrollViewer.CanContentScroll" SourceName="SubMenuScrollViewer" Value="false">
                     <Setter Property="Canvas.Top" TargetName="OpaqueRect" Value="{Binding VerticalOffset, ElementName=SubMenuScrollViewer}"/>
                     <Setter Property="Canvas.Left" TargetName="OpaqueRect" Value="{Binding HorizontalOffset, ElementName=SubMenuScrollViewer}"/>
@@ -162,8 +154,7 @@
                     <Setter Property="Visibility" TargetName="Icon" Value="Collapsed"/>
                 </Trigger>
                 <Trigger Property="IsHighlighted" Value="True">
-                    <Setter Property="Background" TargetName="templateRoot" Value="{StaticResource MenuItem.Highlight.Background}"/>
-                    <Setter Property="BorderBrush" TargetName="templateRoot" Value="{StaticResource MenuItem.Highlight.Border}"/>
+                    <Setter Property="Background" TargetName="templateRoot" Value="#FFC6C6C4"/>
                 </Trigger>
                 <Trigger Property="IsEnabled" Value="False">
                     <Setter Property="TextElement.Foreground" TargetName="templateRoot" Value="{StaticResource Menu.Disabled.Foreground}"/>
@@ -190,8 +181,7 @@
             <Setter Property="Template" Value="{DynamicResource {ComponentResourceKey ResourceId=SubmenuItemTemplateKey, TypeInTargetAssembly={x:Type MenuItem}}}"/>
             <Style.Triggers>
                 <Trigger Property="Role" Value="TopLevelHeader">
-                    <Setter Property="Background" Value="Transparent"/>
-                    <Setter Property="BorderBrush" Value="Transparent"/>
+                    <Setter Property="BorderThickness" Value="0"/>
                     <Setter Property="Foreground" Value="{StaticResource Menu.Static.Foreground}"/>
                     <Setter Property="Template" Value="{DynamicResource {ComponentResourceKey ResourceId=TopLevelHeaderTemplateKey, TypeInTargetAssembly={x:Type MenuItem}}}"/>
                     <Setter Property="Padding" Value="6,0"/>
@@ -199,6 +189,17 @@
             </Style.Triggers>
         </Style>
 
+        <Style x:Key="MoreMenuHeaderStyle" TargetType="{x:Type TextBlock}">
+            <Setter Property="Text" Value="{Binding DateCreated, UpdateSourceTrigger=PropertyChanged}"/>
+            <Setter Property="Height" Value="12"/>
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding IsMouseOver, ElementName=MainBoader}" Value="True">
+                    <Setter Property="FontFamily" Value="Segoe Fluent Icons"/>
+                    <Setter Property="FontSize" Value="16"/>
+                    <Setter Property="Text" Value="&#xE712;"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
     </UserControl.Resources>
 
     <Border x:Name="MainBoader"
@@ -215,9 +216,14 @@
 
             <!-- Date and "More" menu -->
             <Menu Grid.Row="0"
+                  Background="Transparent"
                   HorizontalAlignment="Right">
-                <MenuItem Style="{DynamicResource MoreMenuStyle}"
-                          Header="{Binding DateCreated, UpdateSourceTrigger=PropertyChanged}">
+                <MenuItem Style="{DynamicResource MoreMenuStyle}">
+                    <MenuItem.Header>
+                        <TextBlock Style="{StaticResource MoreMenuHeaderStyle}"/>
+                    </MenuItem.Header>
+
+                    <!-- Open Menu -->
                     <MenuItem Header="Open"
                               Click="OnOpenMenuClick">
                         <MenuItem.Icon>
@@ -226,6 +232,8 @@
                                        FontSize="16"/>
                         </MenuItem.Icon>
                     </MenuItem>
+
+                    <!-- Delete Menu -->
                     <MenuItem Header="Delete"
                               Click="OnDeleteMenuClick">
                         <MenuItem.Icon>
