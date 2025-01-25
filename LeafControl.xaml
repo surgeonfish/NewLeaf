@@ -333,6 +333,14 @@
                                        FontSize="16"/>
                         </MenuItem.Icon>
                     </MenuItem>
+                    <MenuItem Header="Delete"
+                              Click="OnDeleteMenuClick">
+                        <MenuItem.Icon>
+                            <TextBlock Text="&#xe74d;"
+                                       FontFamily="Segoe Fluent Icons"
+                                       FontSize="16"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
                 </MenuItem>
             </Menu>
 

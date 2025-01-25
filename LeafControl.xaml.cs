@@ -42,5 +42,10 @@ namespace NewLeaf
         {
             OpenLeafWindow();
         }
+
+        private void OnDeleteMenuClick(object sender, System.Windows.RoutedEventArgs e)
+        {
+            MainWindow.DeleteLeaf(this);
+        }
     }
 }
