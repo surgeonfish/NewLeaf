@@ -37,5 +37,10 @@ namespace NewLeaf
         {
             OpenLeafWindow();
         }
+
+        private void OnOpenMenuClick(object sender, System.Windows.RoutedEventArgs e)
+        {
+            OpenLeafWindow();
+        }
     }
 }
