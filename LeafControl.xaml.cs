@@ -19,7 +19,7 @@ namespace NewLeaf
             MainWindow = mainWindow;
         }
 
-        private void OnMouseDoubleClick(object sender, MouseButtonEventArgs e)
+        private void OpenLeafWindow()
         {
             if (LeafWindow == null || !LeafWindow.IsLoaded)
             {
@@ -31,6 +31,11 @@ namespace NewLeaf
                 LeafWindow.Activate();
                 //leafWindow.Focus();
             }
+        }
+
+        private void OnMouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            OpenLeafWindow();
         }
     }
 }
