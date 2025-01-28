@@ -44,12 +44,6 @@
                 <StackPanel Grid.Column="1"
                             Orientation="Horizontal"
                             HorizontalAlignment="Right">
-                    <Button x:Name="MinimizeButton"
-                            Style="{StaticResource CaptionButtonStyle}"
-                            Content="&#xe921;"></Button>
-                    <Button x:Name="MaximizeButton"
-                            Style="{StaticResource CaptionButtonStyle}"
-                            Content="&#xe922;"></Button>
                     <Button x:Name="CloseButton"
                             Style="{StaticResource CaptionButtonStyle}"
                             Content="&#xe8bb;"></Button>
