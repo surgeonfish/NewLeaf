@@ -37,7 +37,11 @@
                     <Button x:Name="NewLeafButton"
                             Style="{StaticResource CaptionButtonStyle}"
                             Content="&#xed0e;"
-                            FontSize="16"></Button>
+                            FontSize="16">
+                        <Button.ToolTip>
+                            <TextBlock Text="New"/>
+                        </Button.ToolTip>
+                    </Button>
                 </StackPanel>
 
                 <!-- Minimize/Maximize/Close Buttons -->
