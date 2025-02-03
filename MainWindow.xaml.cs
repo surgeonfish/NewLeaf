@@ -23,7 +23,7 @@ namespace NewLeaf
 
             InitializeComponent();
 
-            databaseHelper = new DatabaseHelper("test.db");
+            databaseHelper = new DatabaseHelper("NewLeaf.db");
 
             SetTitleBar();
             LoadLeaves();
