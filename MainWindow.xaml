@@ -50,7 +50,11 @@
                             HorizontalAlignment="Right">
                     <Button x:Name="CloseButton"
                             Style="{StaticResource CaptionButtonStyle}"
-                            Content="&#xe8bb;"></Button>
+                            Content="&#xe8bb;">
+                        <Button.ToolTip>
+                            <TextBlock Text="Close"/>
+                        </Button.ToolTip>
+                    </Button>
                 </StackPanel>
             </Grid>
         </Border>
