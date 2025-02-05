@@ -1,4 +1,5 @@
 ﻿using NewLeaf.ViewModel;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
@@ -9,21 +10,19 @@ namespace NewLeaf
     /// </summary>
     public partial class LeafControl : UserControl
     {
-        private readonly MainWindow MainWindow = null;
         private LeafWindow LeafWindow = null;
 
-        public LeafControl(MainWindow mainWindow, LeaflViewModel leaflViewModel)
+        public LeafControl(LeaflViewModel leaflViewModel)
         {
             InitializeComponent();
             DataContext = leaflViewModel;
-            MainWindow = mainWindow;
         }
 
         private void OpenLeafWindow()
         {
             if (LeafWindow == null || !LeafWindow.IsLoaded)
             {
-                LeafWindow = new LeafWindow(MainWindow, this, DataContext as LeaflViewModel);
+                LeafWindow = new LeafWindow(DataContext as LeaflViewModel);
                 LeafWindow.Show();
             }
             else
@@ -45,7 +44,8 @@ namespace NewLeaf
 
         private void OnDeleteMenuClick(object sender, System.Windows.RoutedEventArgs e)
         {
-            MainWindow.DeleteLeaf(this);
+            LeaflViewModel leaflViewModel = DataContext as LeaflViewModel;
+            ((App)Application.Current).OnDeleteLeaf(leaflViewModel.Id);
         }
     }
 }

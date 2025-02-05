@@ -6,7 +6,6 @@
         xmlns:local="clr-namespace:NewLeaf"
         mc:Ignorable="d"
         WindowStyle="None"
-        Name="mainWindow"
         Title="MainWindow"
         Height="500"
         Width="335"
@@ -62,7 +61,7 @@
         <!-- Content -->
         <local:LeafListView x:Name="Leaves"
                             Grid.Row="1"
-                            ItemsSource="{Binding ElementName=mainWindow, Path=LeafControls}">
+                            ItemsSource="{Binding Source={x:Static Application.Current}, Path=Properties[LeafControls]}">
         </local:LeafListView>
     </Grid>
 </Window>

@@ -11,7 +11,7 @@ namespace NewLeaf
     /// </summary>
     public partial class LeafWindow : Window
     {
-        public LeafWindow(MainWindow mainWindow, LeafControl leafControl, LeaflViewModel leaflViewModel)
+        public LeafWindow(LeaflViewModel leaflViewModel)
         {
             InitializeComponent();
             DataContext = leaflViewModel;
@@ -51,7 +51,7 @@ namespace NewLeaf
             DeleteLeafButton.Click += (s, e) =>
             {
                 Close();
-                mainWindow.DeleteLeaf(leafControl);
+                ((App)Application.Current).OnDeleteLeaf(leaflViewModel.Id);
             };
 
             CloseButton.Click += (s, e) =>
