@@ -77,6 +77,9 @@
     <Compile Include="ColorPicker.xaml.cs">
       <DependentUpon>ColorPicker.xaml</DependentUpon>
     </Compile>
+    <Compile Include="HomePage.xaml.cs">
+      <DependentUpon>HomePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="LeafListView.xaml.cs">
       <DependentUpon>LeafListView.xaml</DependentUpon>
     </Compile>
@@ -85,6 +88,10 @@
     <Compile Include="ViewModel\LeaflViewModel.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
     <Page Include="ColorPicker.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="HomePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

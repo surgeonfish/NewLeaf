@@ -58,10 +58,10 @@
             </Grid>
         </Border>
 
-        <!-- Content -->
-        <local:LeafListView x:Name="Leaves"
-                            Grid.Row="1"
-                            ItemsSource="{Binding Source={x:Static Application.Current}, Path=Properties[LeafControls]}">
-        </local:LeafListView>
+        <!-- Page -->
+        <Frame x:Name="MainFrame"
+               Grid.Row="1"
+               Source="HomePage.xaml"
+               NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>
