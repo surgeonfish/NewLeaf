@@ -10,6 +10,29 @@
         Height="500"
         Width="335"
         MinWidth="335">
+    <Window.Resources>
+        <Style x:Key="MultiCaptionButtonStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource CaptionButtonStyle}">
+            <Setter Property="Content" Value="&#xed0e;"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="ToolTip">
+                <Setter.Value>
+                    <TextBlock Text="New"/>
+                </Setter.Value>
+            </Setter>
+
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Visibility, ElementName=SettingsButton}" Value="Hidden">
+                    <Setter Property="Content" Value="&#xe72b;"/>
+                    <Setter Property="ToolTip">
+                        <Setter.Value>
+                            <TextBlock Text="Back"/>
+                        </Setter.Value>
+                    </Setter>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+
     <WindowChrome.WindowChrome>
         <WindowChrome/>
     </WindowChrome.WindowChrome>
@@ -29,18 +52,12 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
-                <!-- New button -->
+                <!-- New or Back button -->
                 <StackPanel Grid.Column="0"
                             Orientation="Horizontal"
                             HorizontalAlignment="Left">
-                    <Button x:Name="NewLeafButton"
-                            Style="{StaticResource CaptionButtonStyle}"
-                            Content="&#xed0e;"
-                            FontSize="16">
-                        <Button.ToolTip>
-                            <TextBlock Text="New"/>
-                        </Button.ToolTip>
-                    </Button>
+                    <Button x:Name="NewAndBackButton"
+                            Style="{StaticResource MultiCaptionButtonStyle}"/>
                 </StackPanel>
 
                 <!-- Settings, Close Buttons -->

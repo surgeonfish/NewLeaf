@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace NewLeaf
@@ -25,9 +26,20 @@ namespace NewLeaf
                 }
             };
 
-            NewLeafButton.Click += (s, e) =>
+            NewAndBackButton.Click += (s, e) =>
             {
-                ((App)Application.Current).OnAddLeaf();
+                if (NewAndBackButton.ToolTip is TextBlock textBlock)
+                {
+                    if (textBlock.Text == "New")
+                    {
+                        ((App)Application.Current).OnAddLeaf();
+                    }
+                    else if (textBlock.Text == "Back")
+                    {
+                        MainFrame.NavigationService.GoBack();
+                        SettingsButton.Visibility = Visibility.Visible;
+                    }
+                }
             };
 
             SettingsButton.Click += (s, e) =>
