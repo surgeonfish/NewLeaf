@@ -11,7 +11,7 @@
         Width="335"
         MinWidth="335">
     <Window.Resources>
-        <Style x:Key="MultiCaptionButtonStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource CaptionButtonStyle}">
+        <Style x:Key="MultiplexTitleButtonStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource TitleButtonStyle}">
             <Setter Property="Content" Value="&#xed0e;"/>
             <Setter Property="FontSize" Value="16"/>
             <Setter Property="ToolTip">
@@ -57,7 +57,7 @@
                             Orientation="Horizontal"
                             HorizontalAlignment="Left">
                     <Button x:Name="NewAndBackButton"
-                            Style="{StaticResource MultiCaptionButtonStyle}"/>
+                            Style="{StaticResource MultiplexTitleButtonStyle}"/>
                 </StackPanel>
 
                 <!-- Settings, Close Buttons -->
@@ -65,7 +65,7 @@
                             Orientation="Horizontal"
                             HorizontalAlignment="Right">
                     <Button x:Name="SettingsButton"
-                            Style="{StaticResource CaptionButtonStyle}"
+                            Style="{StaticResource TitleButtonStyle}"
                             Content="&#xe713;"
                             FontSize="16">
                         <Button.ToolTip>
@@ -74,7 +74,7 @@
                     </Button>
 
                     <Button x:Name="CloseButton"
-                            Style="{StaticResource CaptionButtonStyle}"
+                            Style="{StaticResource TitleButtonStyle}"
                             Content="&#xe8bb;">
                         <Button.ToolTip>
                             <TextBlock Text="Close"/>

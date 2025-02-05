@@ -63,17 +63,17 @@
                             Orientation="Horizontal"
                             HorizontalAlignment="Left">
                     <ToggleButton x:Name="PinButton"
-                                  Style="{StaticResource CaptionToggleButtonStyle}"/>
+                                  Style="{StaticResource TitleToggleButtonStyle}"/>
                     <Button x:Name="ColorPickerButton"
-                            Style="{StaticResource CaptionButtonStyle}"
+                            Style="{StaticResource TitleButtonStyle}"
                             Content="&#xe790;"
                             FontSize="16"/>
                     <Button x:Name="SaveLeafButton"
-                            Style="{StaticResource CaptionButtonStyle}"
+                            Style="{StaticResource TitleButtonStyle}"
                             Content="&#xe74e;"
                             FontSize="16"/>
                     <Button x:Name="DeleteLeafButton"
-                            Style="{StaticResource CaptionButtonStyle}"
+                            Style="{StaticResource TitleButtonStyle}"
                             Content="&#xe74d;"
                             FontSize="16"/>
                 </StackPanel>
@@ -81,7 +81,7 @@
                 <!-- Close Button -->
                 <Button x:Name="CloseButton"
                         Grid.Column="1"
-                        Style="{StaticResource CaptionButtonStyle}"
+                        Style="{StaticResource TitleButtonStyle}"
                         Content="&#xe8bb;"
                         HorizontalAlignment="Right"/>
             </Grid>

@@ -12,7 +12,7 @@
             <local:ThemeColorConverter x:Key="TittleThemeColorConverter" Type="Title"/>
             <local:ThemeColorConverter x:Key="ContentThemeColorConverter" Type="Content"/>
 
-            <Style x:Key="CaptionButtonStyle" TargetType="{x:Type Button}">
+            <Style x:Key="TitleButtonStyle" TargetType="{x:Type Button}">
                 <Setter Property="FontFamily" Value="Segoe Fluent Icons"/>
                 <Setter Property="Background" Value="Transparent"/>
                 <Setter Property="BorderBrush" Value="Transparent"/>
@@ -48,7 +48,7 @@
                 </Style.Triggers>
             </Style>
 
-            <Style x:Key="CaptionToggleButtonStyle" TargetType="{x:Type ToggleButton}">
+            <Style x:Key="TitleToggleButtonStyle" TargetType="{x:Type ToggleButton}">
                 <Setter Property="FontFamily" Value="Segoe Fluent Icons"/>
                 <Setter Property="FontSize" Value="16"/>
                 <Setter Property="Content" Value="&#xe718;"/>
