@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Input;
 
 namespace NewLeaf
@@ -27,6 +28,12 @@ namespace NewLeaf
             NewLeafButton.Click += (s, e) =>
             {
                 ((App)Application.Current).OnAddLeaf();
+            };
+
+            SettingsButton.Click += (s, e) =>
+            {
+                MainFrame.NavigationService.Navigate(new Uri("pack://application:,,,/SettingsPage.xaml"));
+                SettingsButton.Visibility = Visibility.Hidden;
             };
 
             CloseButton.Click += (s, e) =>

@@ -43,10 +43,19 @@
                     </Button>
                 </StackPanel>
 
-                <!-- Minimize/Maximize/Close Buttons -->
+                <!-- Settings, Close Buttons -->
                 <StackPanel Grid.Column="1"
                             Orientation="Horizontal"
                             HorizontalAlignment="Right">
+                    <Button x:Name="SettingsButton"
+                            Style="{StaticResource CaptionButtonStyle}"
+                            Content="&#xe713;"
+                            FontSize="16">
+                        <Button.ToolTip>
+                            <TextBlock Text="Settings"/>
+                        </Button.ToolTip>
+                    </Button>
+
                     <Button x:Name="CloseButton"
                             Style="{StaticResource CaptionButtonStyle}"
                             Content="&#xe8bb;">
