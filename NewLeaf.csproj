@@ -84,6 +84,9 @@
       <DependentUpon>LeafListView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\LeafModel.cs" />
+    <Compile Include="SettingsPage.xaml.cs">
+      <DependentUpon>SettingsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ThemeColorConverter.cs" />
     <Compile Include="ViewModel\LeaflViewModel.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
@@ -126,6 +129,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="SettingsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Themes\Default.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
