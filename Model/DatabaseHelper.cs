@@ -11,11 +11,20 @@ namespace NewLeaf.Model
 
         public DatabaseHelper(string dbPath)
         {
-            SQLiteConnectionStringBuilder builder = new SQLiteConnectionStringBuilder();
-            builder.DataSource = dbPath;
-            connectionString = builder.ConnectionString;
+            string appDataPath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+            string appFolder = Path.Combine(appDataPath, "NewLeaf");
+            string fullDbPath = Path.Combine(appFolder, dbPath);
+            if (!Directory.Exists(appFolder))
+            {
+                Directory.CreateDirectory(appFolder);
+            }
 
-            if (!File.Exists(dbPath))
+            SQLiteConnectionStringBuilder builder = new SQLiteConnectionStringBuilder
+            {
+                DataSource = fullDbPath
+            };
+            connectionString = builder.ConnectionString;
+            if (!File.Exists(fullDbPath))
             {
                 CreateDatabase();
             }
