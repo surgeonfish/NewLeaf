@@ -4,13 +4,26 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:NewLeaf"
+             xmlns:nc="clr-namespace:NewLeaf.Controls"
              mc:Ignorable="d"
              MouseDoubleClick="OnMouseDoubleClick">
     <UserControl.Resources>
-        <SolidColorBrush x:Key="TitleColorBrush"
-                         Color="{Binding Color, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource TittleThemeColorConverter}}"/>
-        <SolidColorBrush x:Key="ContentColorBrush"
-                         Color="{Binding Color, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource ContentThemeColorConverter}}"/>
+        <SolidColorBrush x:Key="TitleColorBrush">
+            <nc:SolidColorBrushAttach.Convert>
+                <MultiBinding Converter="{StaticResource TittleThemeColorConverter}">
+                    <Binding Path="Color" UpdateSourceTrigger="PropertyChanged"/>
+                    <Binding RelativeSource="{RelativeSource Self}"/>
+                </MultiBinding>
+            </nc:SolidColorBrushAttach.Convert>
+        </SolidColorBrush>
+        <SolidColorBrush x:Key="ContentColorBrush">
+            <nc:SolidColorBrushAttach.Convert>
+                <MultiBinding Converter="{StaticResource ContentThemeColorConverter}">
+                    <Binding Path="Color" UpdateSourceTrigger="PropertyChanged"/>
+                    <Binding RelativeSource="{RelativeSource Self}"/>
+                </MultiBinding>
+            </nc:SolidColorBrushAttach.Convert>
+        </SolidColorBrush>
         <SolidColorBrush x:Key="Menu.Static.Background" Color="#FFF0F0F0"/>
         <SolidColorBrush x:Key="Menu.Static.Border" Color="#FF999999"/>
         <SolidColorBrush x:Key="Menu.Static.Foreground" Color="#FF212121"/>
@@ -205,8 +218,9 @@
 
     <Border x:Name="MainBoader"
             CornerRadius="2"
-            Background="{StaticResource ContentColorBrush}">
-        <Grid Margin="0,2">
+            Background="{StaticResource TitleColorBrush}">
+        <Grid Margin="0,4,0,0"
+              Background="{StaticResource ContentColorBrush}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"></RowDefinition>
                 <RowDefinition Height="*"></RowDefinition>

@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NewLeaf"
+        xmlns:nc="clr-namespace:NewLeaf.Controls"
         mc:Ignorable="d"
         WindowStyle="None"
         Title="Leaf"
@@ -13,10 +14,22 @@
         MinHeight="100"
         MinWidth="192">
     <Window.Resources>
-        <SolidColorBrush x:Key="TitleColorBrush"
-                         Color="{Binding Color, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource TittleThemeColorConverter}}"/>
-        <SolidColorBrush x:Key="ContentColorBrush"
-                         Color="{Binding Color, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource ContentThemeColorConverter}}"/>
+        <SolidColorBrush x:Key="TitleColorBrush">
+            <nc:SolidColorBrushAttach.Convert>
+                <MultiBinding Converter="{StaticResource TittleThemeColorConverter}">
+                    <Binding Path="Color" UpdateSourceTrigger="PropertyChanged"/>
+                    <Binding RelativeSource="{RelativeSource Self}"/>
+                </MultiBinding>
+            </nc:SolidColorBrushAttach.Convert>
+        </SolidColorBrush>
+        <SolidColorBrush x:Key="ContentColorBrush">
+            <nc:SolidColorBrushAttach.Convert>
+                <MultiBinding Converter="{StaticResource ContentThemeColorConverter}">
+                    <Binding Path="Color" UpdateSourceTrigger="PropertyChanged"/>
+                    <Binding RelativeSource="{RelativeSource Self}"/>
+                </MultiBinding>
+            </nc:SolidColorBrushAttach.Convert>
+        </SolidColorBrush>
     </Window.Resources>
 
     <WindowChrome.WindowChrome>
