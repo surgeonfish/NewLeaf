@@ -78,6 +78,7 @@
       <DependentUpon>ColorPicker.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\SolidColorBrushAttach.cs" />
+    <Compile Include="Controls\ThemeSelectionConverter.cs" />
     <Compile Include="HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
     </Compile>
