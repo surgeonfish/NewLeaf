@@ -18,6 +18,11 @@
             <FontWeight x:Key="BodyStrongFontWeight">SemiBold</FontWeight>
             <FontWeight x:Key="BodyFontWeight">Normal</FontWeight>
 
+            <!-- Spacing -->
+            <system:Double x:Key="CardSpacing">16</system:Double>
+            <Thickness x:Key="HeaderSpacing" Left="{StaticResource CardSpacing}" Top="16" Right="0" Bottom="0"/>
+            <Thickness x:Key="ControlSpacing" Left="{StaticResource CardSpacing}" Top="12" Right="0" Bottom="0"/>
+
             <local:ThemeColorConverter x:Key="TittleThemeColorConverter" Type="Title"/>
             <local:ThemeColorConverter x:Key="ContentThemeColorConverter" Type="Content"/>
 
