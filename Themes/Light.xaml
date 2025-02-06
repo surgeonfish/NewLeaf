@@ -26,4 +26,12 @@
     <Color x:Key="PickerBlue">#FF9EDFFF</Color>
     <Color x:Key="PickerGray">#FFE0E0E0</Color>
     <Color x:Key="PickerCarbon">#FF767676</Color>
+
+    <!-- Theme Background -->
+    <SolidColorBrush x:Key="ThemeBackground">#FFFFFFFF</SolidColorBrush>
+
+    <!-- Foregrounds -->
+    <SolidColorBrush x:Key="ButtonForeground">#FF6C6C6C</SolidColorBrush>
+    <SolidColorBrush x:Key="ControlForeground">#FF000000</SolidColorBrush>
+    <SolidColorBrush x:Key="ContentForeground">#FF333333</SolidColorBrush>
 </ResourceDictionary>
