@@ -85,6 +85,7 @@
       <DependentUpon>LeafListView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\LeafModel.cs" />
+    <Compile Include="Model\SettingsModel.cs" />
     <Compile Include="SettingsPage.xaml.cs">
       <DependentUpon>SettingsPage.xaml</DependentUpon>
     </Compile>
