@@ -1,0 +1,37 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <!-- Title colors -->
+    <Color x:Key="TitleYellow">#FFE6B905</Color>
+    <Color x:Key="TitleGreen">#FF6FD262</Color>
+    <Color x:Key="TitlePink">#FFEA86C2</Color>
+    <Color x:Key="TitlePurple">#FFC78EFF</Color>
+    <Color x:Key="TitleBlue">#FF5AC0E7</Color>
+    <Color x:Key="TitleGray">#FFAAAAAA</Color>
+    <Color x:Key="TitleCarbon">#FF454545</Color>
+
+    <!-- Content colors -->
+    <Color x:Key="ContentYellow">#FF333333</Color>
+    <Color x:Key="ContentGreen">#FF333333</Color>
+    <Color x:Key="ContentPink">#FF333333</Color>
+    <Color x:Key="ContentPurple">#FF333333</Color>
+    <Color x:Key="ContentBlue">#FF333333</Color>
+    <Color x:Key="ContentGray">#FF333333</Color>
+    <Color x:Key="ContentCarbon">#FF333333</Color>
+
+    <!-- Picker colors -->
+    <Color x:Key="PickerYellow">#FFE6B904</Color>
+    <Color x:Key="PickerGreen">#FF65BA5A</Color>
+    <Color x:Key="PickerPink">#FFEA86C2</Color>
+    <Color x:Key="PickerPurple">#FFB07FE0</Color>
+    <Color x:Key="PickerBlue">#FF59C0E7</Color>
+    <Color x:Key="PickerGray">#FF989898</Color>
+    <Color x:Key="PickerCarbon">#FF444444</Color>
+
+    <!-- Theme Background -->
+    <SolidColorBrush x:Key="ThemeBackground">#FF212121</SolidColorBrush>
+
+    <!-- Foregrounds -->
+    <SolidColorBrush x:Key="ButtonForeground">#FF6E6E6E</SolidColorBrush>
+    <SolidColorBrush x:Key="ControlForeground">#FFFFFFFF</SolidColorBrush>
+    <SolidColorBrush x:Key="ContentForeground">#FFEEEEEE</SolidColorBrush>
+</ResourceDictionary>
