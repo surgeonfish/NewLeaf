@@ -1,7 +1,7 @@
 ﻿<Application x:Class="NewLeaf.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:NewLeaf"
+             xmlns:nc="clr-namespace:NewLeaf.Controls"
              xmlns:system="clr-namespace:System;assembly=mscorlib"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
@@ -19,8 +19,8 @@
             <Thickness x:Key="HeaderSpacing" Left="{StaticResource CardSpacing}" Top="16" Right="0" Bottom="0"/>
             <Thickness x:Key="ControlSpacing" Left="{StaticResource CardSpacing}" Top="12" Right="0" Bottom="0"/>
 
-            <local:ThemeColorConverter x:Key="TittleThemeColorConverter" Type="Title"/>
-            <local:ThemeColorConverter x:Key="ContentThemeColorConverter" Type="Content"/>
+            <nc:ThemeColorConverter x:Key="TittleThemeColorConverter" Type="Title"/>
+            <nc:ThemeColorConverter x:Key="ContentThemeColorConverter" Type="Content"/>
 
             <Style x:Key="TitleButtonStyle" TargetType="{x:Type Button}">
                 <Setter Property="FontFamily" Value="Segoe Fluent Icons"/>
