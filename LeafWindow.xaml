@@ -94,6 +94,7 @@
                  BorderBrush="Transparent"
                  BorderThickness="0"
                  Background="Transparent"
+                 Foreground="{DynamicResource ContentForeground}"
                  Margin="4,4"
                  TextWrapping="Wrap"
                  KeyDown="OnKeyDown"/>

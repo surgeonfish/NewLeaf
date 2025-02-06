@@ -54,13 +54,13 @@
             </Style.Triggers>
         </Style>
 
-        <SolidColorBrush x:Key="PickerYellowBrush" Color="{StaticResource PickerYellow}"/>
-        <SolidColorBrush x:Key="PickerGreenBrush" Color="{StaticResource PickerGreen}"/>
-        <SolidColorBrush x:Key="PickerPinkBrush" Color="{StaticResource PickerPink}"/>
-        <SolidColorBrush x:Key="PickerPurpleBrush" Color="{StaticResource PickerPurple}"/>
-        <SolidColorBrush x:Key="PickerBlueBrush" Color="{StaticResource PickerBlue}"/>
-        <SolidColorBrush x:Key="PickerGrayBrush" Color="{StaticResource PickerGray}"/>
-        <SolidColorBrush x:Key="PickerCarbonBrush" Color="{StaticResource PickerCarbon}"/>
+        <SolidColorBrush x:Key="PickerYellowBrush" Color="{DynamicResource PickerYellow}"/>
+        <SolidColorBrush x:Key="PickerGreenBrush" Color="{DynamicResource PickerGreen}"/>
+        <SolidColorBrush x:Key="PickerPinkBrush" Color="{DynamicResource PickerPink}"/>
+        <SolidColorBrush x:Key="PickerPurpleBrush" Color="{DynamicResource PickerPurple}"/>
+        <SolidColorBrush x:Key="PickerBlueBrush" Color="{DynamicResource PickerBlue}"/>
+        <SolidColorBrush x:Key="PickerGrayBrush" Color="{DynamicResource PickerGray}"/>
+        <SolidColorBrush x:Key="PickerCarbonBrush" Color="{DynamicResource PickerCarbon}"/>
     </UserControl.Resources>
 
     <Grid x:Name="ColorPalette"

@@ -11,7 +11,7 @@
         Width="335"
         MinWidth="335">
     <Window.Resources>
-        <Style x:Key="MultiplexTitleButtonStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource TitleButtonStyle}">
+        <Style x:Key="MultiplexTitleButtonStyle" TargetType="{x:Type Button}" BasedOn="{StaticResource TitleThemeButtonStyle}">
             <Setter Property="Content" Value="&#xed0e;"/>
             <Setter Property="FontSize" Value="16"/>
             <Setter Property="ToolTip">
@@ -37,15 +37,14 @@
         <WindowChrome/>
     </WindowChrome.WindowChrome>
 
-    <Grid>
+    <Grid Background="{DynamicResource ThemeBackground}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
 
         <Border x:Name="TitleBar"
-                Grid.Row="0"
-                Background="White">
+                Grid.Row="0">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
@@ -65,7 +64,7 @@
                             Orientation="Horizontal"
                             HorizontalAlignment="Right">
                     <Button x:Name="SettingsButton"
-                            Style="{StaticResource TitleButtonStyle}"
+                            Style="{StaticResource TitleThemeButtonStyle}"
                             Content="&#xe713;"
                             FontSize="16">
                         <Button.ToolTip>
@@ -74,7 +73,7 @@
                     </Button>
 
                     <Button x:Name="CloseButton"
-                            Style="{StaticResource TitleButtonStyle}"
+                            Style="{StaticResource TitleThemeButtonStyle}"
                             Content="&#xe8bb;">
                         <Button.ToolTip>
                             <TextBlock Text="Close"/>
