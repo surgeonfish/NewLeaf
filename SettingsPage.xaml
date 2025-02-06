@@ -4,9 +4,43 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:NewLeaf"
+      xmlns:nc="clr-namespace:NewLeaf.Controls"
       mc:Ignorable="d"
       d:DesignHeight="450"
       d:DesignWidth="800"
       Title="SettingsPage"
-      KeepAlive="False">
+      KeepAlive="True">
+    <Page.Resources>
+        <nc:ThemeSelectionConverter x:Key="ThemeSelectionConverter"/>
+
+        <Style x:Key="TextBlockStyle" TargetType="{x:Type TextBlock}">
+            <Setter Property="Foreground" Value="{DynamicResource ControlForeground}"/>
+            <Setter Property="FontSize" Value="{StaticResource BodyStrongFontSize}"/>
+            <Setter Property="FontWeight" Value="{StaticResource BodyStrongFontWeight}"/>
+            <Setter Property="Margin" Value="{StaticResource HeaderSpacing}"/>
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+        </Style>
+
+        <Style x:Key="RadioButtonStyle" TargetType="{x:Type RadioButton}">
+            <Setter Property="Foreground" Value="{DynamicResource ControlForeground}"/>
+            <Setter Property="FontSize" Value="{StaticResource BodyFontSize}"/>
+            <Setter Property="FontWeight" Value="{StaticResource BodyFontWeight}"/>
+            <Setter Property="Margin" Value="{StaticResource ControlSpacing}"/>
+            <Setter Property="SnapsToDevicePixels" Value="True"/>
+        </Style>
+    </Page.Resources>
+
+    <!-- Color Selection -->
+    <StackPanel Orientation="Vertical">
+        <TextBlock Text="Color"
+                   Style="{StaticResource TextBlockStyle}"/>
+        <RadioButton Content="Light"
+                     GroupName="ColorSelection"
+                     IsChecked="{Binding Theme, Converter={StaticResource ThemeSelectionConverter}, ConverterParameter=Light}"
+                     Style="{StaticResource RadioButtonStyle}"/>
+        <RadioButton Content="Dark"
+                     GroupName="ColorSelection"
+                     IsChecked="{Binding Theme, Converter={StaticResource ThemeSelectionConverter}, ConverterParameter=Dark}"
+                     Style="{StaticResource RadioButtonStyle}"/>
+    </StackPanel>
 </Page>

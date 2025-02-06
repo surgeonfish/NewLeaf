@@ -1,6 +1,7 @@
 ﻿using NewLeaf.Model;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Windows;
 
 namespace NewLeaf.ViewModel
 {
@@ -12,6 +13,7 @@ namespace NewLeaf.ViewModel
             set
             {
                 base.Theme = value;
+                ((App)Application.Current).OnSwitchTheme(value);
                 OnPropertyChanged();
             }
         }

@@ -1,4 +1,6 @@
-﻿using System.Windows.Controls;
+﻿using NewLeaf.ViewModel;
+using System.Windows;
+using System.Windows.Controls;
 
 namespace NewLeaf
 {
@@ -10,6 +12,7 @@ namespace NewLeaf
         public SettingsPage()
         {
             InitializeComponent();
+            DataContext = Application.Current.Properties["Settings"] as SettingsViewModel;
         }
     }
 }

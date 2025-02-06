@@ -6,10 +6,6 @@
              StartupUri="MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/Themes/Light.xaml"/>
-            </ResourceDictionary.MergedDictionaries>
-
             <!-- Font Size -->
             <system:Double x:Key="BodyStrongFontSize">20</system:Double>
             <system:Double x:Key="BodyFontSize">14</system:Double>

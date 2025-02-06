@@ -25,6 +25,10 @@ namespace NewLeaf
         {
             base.OnStartup(e);
 
+            SettingsViewModel settingsViewModel = new SettingsViewModel();
+            OnSwitchTheme(settingsViewModel.Theme);
+            Properties["Settings"] = settingsViewModel;
+
             LeafControls = new ObservableCollection<LeafControl>();
             DatabaseHelper.GetAllLeaves((leaflViewModel) =>
             {
@@ -68,6 +72,19 @@ namespace NewLeaf
                     LeafControls.Remove(leafControl);
                     break;
                 }
+            }
+        }
+
+        public void OnSwitchTheme(string theme)
+        {
+            String themeSource = "Themes/" + theme + ".xaml";
+            ResourceDictionary resourceDictionary = new ResourceDictionary
+            {
+                Source = new Uri("pack://application:,,,/" + themeSource)
+            };
+            if (resourceDictionary != null)
+            {
+                Resources.MergedDictionaries.Add(resourceDictionary);
             }
         }
     }
