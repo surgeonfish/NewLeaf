@@ -240,7 +240,7 @@
                         <MenuItem.Icon>
                             <TextBlock Text="&#xe8a7;"
                                        FontFamily="Segoe Fluent Icons"
-                                       FontSize="16"/>
+                                       FontSize="12"/>
                         </MenuItem.Icon>
                     </MenuItem>
 
@@ -250,7 +250,7 @@
                         <MenuItem.Icon>
                             <TextBlock Text="&#xe74d;"
                                        FontFamily="Segoe Fluent Icons"
-                                       FontSize="16"/>
+                                       FontSize="12"/>
                         </MenuItem.Icon>
                     </MenuItem>
                 </MenuItem>
