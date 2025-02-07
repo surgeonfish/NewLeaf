@@ -27,8 +27,11 @@
     <Color x:Key="PickerGray">#FFE0E0E0</Color>
     <Color x:Key="PickerCarbon">#FF767676</Color>
 
-    <!-- Theme Background -->
+    <!-- Backgrounds -->
     <SolidColorBrush x:Key="ThemeBackground">#FFFFFFFF</SolidColorBrush>
+    <SolidColorBrush x:Key="PopupMenuBorder">#FFC6C6C6</SolidColorBrush>
+    <SolidColorBrush x:Key="PopupMenuBackground">#FFE5E5E5</SolidColorBrush>
+    <SolidColorBrush x:Key="PopupMenuItemHightlightBackground">#FFCBCBCB</SolidColorBrush>
 
     <!-- Foregrounds -->
     <SolidColorBrush x:Key="ButtonForeground">#FF6C6C6C</SolidColorBrush>
