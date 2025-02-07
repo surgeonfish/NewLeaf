@@ -86,9 +86,6 @@
     <Compile Include="HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="LeafListView.xaml.cs">
-      <DependentUpon>LeafListView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Model\LeafModel.cs" />
     <Compile Include="Model\SettingsModel.cs" />
     <Compile Include="SettingsPage.xaml.cs">
@@ -106,10 +103,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="LeafControl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="LeafListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
